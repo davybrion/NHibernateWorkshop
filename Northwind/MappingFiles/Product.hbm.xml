@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Northwind.Entities" assembly="Northwind">
+
+  <class name="Product">
+    <id name="Id" column="Id" >
+      <generator class="identity" />
+    </id>
+
+    <version name="Version" />
+
+    <property name="Name" length="50" not-null="true" />
+    <property name="Category" type="NHibernate.Type.EnumStringType`1[[Northwind.Enums.ProductCategory, Northwind]], NHibernate" not-null="true" />
+    <property name="UnitPrice" />
+    <property name="UnitsInStock" />
+    <property name="UnitsOnOrder" />
+    <property name="ReorderLevel" />
+    <property name="Discontinued" />
+    
+    <bag name="Sources" access="field.camelcase-underscore" inverse="true" cascade="all-delete-orphan" lazy="extra">
+      <key column="ProductId" />
+      <one-to-many class="ProductSource" />
+    </bag>
+    
+  </class>
+
+</hibernate-mapping>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Northwind.Entities" assembly="Northwind">
+
+  <class name="ProductSource">
+    <id name="Id" column="Id" >
+      <generator class="guid.comb" />
+    </id>
+
+    <many-to-one name="Product" column="ProductId" not-null="true" />
+    <many-to-one name="Supplier" column="SupplierId" not-null="true" cascade="save-update" />
+    <property name="Cost" not-null="true" />
+  </class>
+
+</hibernate-mapping>

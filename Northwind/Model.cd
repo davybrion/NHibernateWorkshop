@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Northwind.Entities.Customer" HideInheritanceLine="true">
+    <Position X="5.25" Y="1.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Entities\Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Northwind.Entities.Employee" HideInheritanceLine="true">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAEAAAAAAAEBAIAAAAAQAACAAhAACAAAAIAAAAAg=</HashCode>
+      <FileName>Entities\Employee.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Manager" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Subordinates" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Northwind.Entities.Entity&lt;TId&gt;">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAQAgAAAAAAAAAAAAIAAAAAgAAAIAAA=</HashCode>
+      <FileName>Entities\Entity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Northwind.Entities.Order" HideInheritanceLine="true">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <AssociationLine Name="Customer" Type="Northwind.Entities.Customer" FixedToPoint="true">
+      <Path>
+        <Point X="8.5" Y="2.312" />
+        <Point X="7.5" Y="2.312" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAEAAAgAAAAACAAQACAAAAAAiBAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Order.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Customer" />
+      <Property Name="Employee" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Items" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Northwind.Entities.OrderItem" HideInheritanceLine="true">
+    <Position X="10" Y="4.5" Width="1.5" />
+    <AssociationLine Name="Product" Type="Northwind.Entities.Product" ManuallyRouted="true">
+      <Path>
+        <Point X="10.281" Y="4.5" />
+        <Point X="10.281" Y="4.34" />
+        <Point X="9.775" Y="4.34" />
+        <Point X="9.775" Y="3.975" />
+        <Point X="10.682" Y="3.975" Type="JumpStart" />
+        <Point X="10.849" Y="3.975" Type="JumpEnd" />
+        <Point X="11.25" Y="3.975" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.652" Y="0.05" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>IAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAACAAA=</HashCode>
+      <FileName>Entities\OrderItem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Product" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Northwind.Entities.Product" HideInheritanceLine="true">
+    <Position X="11.25" Y="0.75" Width="1.5" />
+    <AssociationLine Name="Sources" Type="Northwind.Entities.ProductSource">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.485" Y="0.227" Height="0.182" Width="0.738" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>IEAAAEAAAAAAAAAgAAAAQAQAAAEQAAAIAAAAAAAgCAA=</HashCode>
+      <FileName>Entities\Product.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Sources" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Northwind.Entities.ProductSource" HideInheritanceLine="true">
+    <Position X="13.5" Y="5" Width="1.5" />
+    <AssociationLine Name="Product" Type="Northwind.Entities.Product">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.227" Y="0.058" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAIAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\ProductSource.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Product" />
+      <Property Name="Supplier" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Northwind.Entities.Supplier" HideInheritanceLine="true">
+    <Position X="14.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Supplier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Northwind.Entities.ThirdParty" HideInheritanceLine="true">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAgAAQAAAAAAAACAAAAIAAAAAA=</HashCode>
+      <FileName>Entities\ThirdParty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Northwind.Components.Address" Collapsed="true">
+    <Position X="0.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIoAAAAAAAAAIAAIAAAAIAAAAAAiA=</HashCode>
+      <FileName>Components\Address.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

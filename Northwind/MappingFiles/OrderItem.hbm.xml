@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Northwind.Entities" assembly="Northwind">
+
+  <class name="OrderItem">
+    <id name="Id" column="Id" >
+      <generator class="hilo">
+        <!--<param name="max_lo">100</param>--> <!-- TODO: investigate this thoroughly -->
+      </generator>
+    </id>
+
+    <many-to-one name="Product" column="ProductId" not-null="true" />
+
+    <property name="UnitPrice" not-null="true" />
+    <property name="Quantity" not-null="true" />
+    <property name="DiscountPercentage" />
+    
+  </class>
+
+</hibernate-mapping>

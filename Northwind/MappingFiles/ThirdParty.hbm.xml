@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Northwind.Entities" assembly="Northwind">
+
+  <!-- Table Per Hierarchy example -->
+  <class name="ThirdParty">
+    <id name="Id" column="Id" >
+      <generator class="hilo">
+        <!--<param name="max_lo">100</param>--> <!-- TODO: investigate this thoroughly -->
+      </generator>
+    </id>
+
+    <discriminator column="Type" not-null="true" type="string" />
+
+    <property name="Name" length="100" not-null="true" />
+    <property name="ContactName" length="100" />
+    <property name="Phone" length="15" />
+    <property name="Fax" length="15" />
+    
+    <component name="Address">
+      <property name="Street" length="100" not-null="true" />
+      <property name="City" length="100" not-null="true" />
+      <property name="PostalCode" not-null="true" />
+      <property name="Country" length="100" not-null="true" />
+    </component>
+
+    <subclass name="Customer" discriminator-value="Customer">
+      <property name="DiscountPercentage" /> <!-- note that we can't make this field required for Customers with the Table Per Hierarchy strategy -->
+    </subclass>
+
+    <subclass name="Supplier" discriminator-value="Supplier">
+      <property name="Website" length="100"/>
+    </subclass> 
+    
+  </class>
+
+</hibernate-mapping>

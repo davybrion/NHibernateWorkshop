@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Northwind.Entities" assembly="Northwind">
+
+  <class name="Employee" optimistic-lock="dirty" dynamic-update="true">
+    <id name="Id" column="Id" >
+      <generator class="identity" />
+    </id>
+
+    <property name="FirstName" length="50" not-null="true" />
+    <property name="LastName" length="75" not-null="true" />
+    <property name="Title" length="50" />
+    <property name="BirthDate" not-null="true" />
+    <property name="HireDate" not-null="true" />
+    <property name="Phone" length="15" />
+
+    <component name="Address">
+      <property name="Street" length="100" not-null="true" />
+      <property name="City" length="100" not-null="true" />
+      <property name="PostalCode" not-null="true" />
+      <property name="Country" length="100" not-null="true" />
+    </component>
+    
+    <many-to-one name="Manager" column="ManagerId" />
+
+    <bag name="Subordinates" access="field.camelcase-underscore" inverse="true" cascade="save-update">
+      <key column="ManagerId" />
+      <one-to-many class="Employee"/>
+    </bag>
+    
+  </class>
+
+</hibernate-mapping>
