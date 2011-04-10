@@ -1,5 +1,4 @@
 using NHibernate;
-using NHibernateWorkshop.SessionFactoryBuilders;
 using NUnit.Framework;
 
 namespace NHibernateWorkshop

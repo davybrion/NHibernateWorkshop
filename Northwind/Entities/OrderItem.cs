@@ -1,8 +1,6 @@
-using System;
-
 namespace Northwind.Entities
 {
-    public class OrderItem : Entity<int> // TODO: use HILO for this one
+    public class OrderItem : Entity<int>
     {
         public virtual Product Product { get; private set; }
         public virtual double UnitPrice { get; set; }

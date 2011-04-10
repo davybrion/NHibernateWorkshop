@@ -10,6 +10,6 @@ namespace Northwind.Entities
 
         public Supplier(string name, Address address) : base(name, address) {}
 
-        // TODO: add ProductCatalog mapping
+        // TODO: add ProductCatalog mapping?
     }
 }

@@ -21,7 +21,7 @@ namespace NHibernateWorkshop
 #endif
 
             // TODO: remove this
-            HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.Initialize();
+            //HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.Initialize();
 
             using (var session = CreateSession())
             using (var transaction = session.BeginTransaction())

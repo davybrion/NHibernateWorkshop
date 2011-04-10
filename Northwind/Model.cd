@@ -42,6 +42,7 @@
     <ShowAsAssociation>
       <Property Name="Customer" />
       <Property Name="Employee" />
+      <Property Name="DeliveryAddress" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="Items" />
@@ -110,14 +111,17 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Northwind.Entities.ThirdParty" HideInheritanceLine="true">
-    <Position X="0.5" Y="3" Width="1.5" />
+    <Position X="0.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAgAAAAAAAAAAgAAQAAAAAAAACAAAAIAAAAAA=</HashCode>
       <FileName>Entities\ThirdParty.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Address" />
+    </ShowAsAssociation>
   </Class>
-  <Class Name="Northwind.Components.Address" Collapsed="true">
-    <Position X="0.5" Y="6" Width="1.5" />
+  <Class Name="Northwind.Components.Address">
+    <Position X="4.75" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAIoAAAAAAAAAIAAIAAAAIAAAAAAiA=</HashCode>
       <FileName>Components\Address.cs</FileName>

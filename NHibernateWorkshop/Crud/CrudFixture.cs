@@ -1,4 +1,3 @@
-using NHibernateWorkshop.SessionFactoryBuilders;
 using Northwind.Entities;
 using NUnit.Framework;
 

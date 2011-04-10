@@ -6,7 +6,7 @@
   <class name="ThirdParty">
     <id name="Id" column="Id" >
       <generator class="hilo">
-        <!--<param name="max_lo">100</param>--> <!-- TODO: investigate this thoroughly -->
+        <!--<param name="max_lo">100</param>-->
       </generator>
     </id>
 
