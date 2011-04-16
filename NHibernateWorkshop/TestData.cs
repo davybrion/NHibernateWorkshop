@@ -41,8 +41,6 @@ namespace NHibernateWorkshop
                 .Many<Customer>(20, 40)
                 .ToArray();
 
-            var customers2 = customers.Where(c => c.Name.Length < 5);
-
             var managers = EmployeeGenerator(session)
                 .ForEach<Employee>(employee => session.Save(employee))
                 .Many<Employee>(2);
