@@ -122,6 +122,7 @@
     <Compile Include="Querying\Criteria\Ordering.cs" />
     <Compile Include="Querying\Criteria\Paging.cs" />
     <Compile Include="Querying\Criteria\UniqueResult.cs" />
+    <Compile Include="Querying\HQL\Count.cs" />
     <Compile Include="SessionFactoryBuilders\FileHelper.cs" />
     <Compile Include="SessionFactoryBuilders\ISessionFactoryBuilder.cs" />
     <Compile Include="SessionFactoryBuilders\SQLiteFluentSessionFactoryBuilder.cs" />
