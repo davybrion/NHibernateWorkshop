@@ -119,6 +119,7 @@
     <Compile Include="Performance\FuturesFixture.cs" />
     <Compile Include="Performance\PagingFixture.cs" />
     <Compile Include="Querying\Criteria\CountFixture.cs" />
+    <Compile Include="Querying\Criteria\DetachedCriteriaVsICriteriaFixture.cs" />
     <Compile Include="SessionFactoryBuilders\FileHelper.cs" />
     <Compile Include="SessionFactoryBuilders\ISessionFactoryBuilder.cs" />
     <Compile Include="SessionFactoryBuilders\SQLiteFluentSessionFactoryBuilder.cs" />
