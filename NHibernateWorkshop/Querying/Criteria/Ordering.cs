@@ -47,11 +47,5 @@ namespace NHibernateWorkshop.Querying.Criteria
 
             Assert.Throws<NHibernate.QueryException>(() => query.List());
         }
-
-        //[Test]
-        //public void order_by_projections()
-        //{
-            // TODO: retrieve top 10 customers who have the most orders 
-        //}
     }
 }

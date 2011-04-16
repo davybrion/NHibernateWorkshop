@@ -117,10 +117,10 @@
     <Compile Include="OptimisticConcurrency\Version.cs" />
     <Compile Include="Performance\ExtraLazyCollection.cs" />
     <Compile Include="Performance\Futures.cs" />
-    <Compile Include="Performance\Paging.cs" />
     <Compile Include="Querying\Criteria\Count.cs" />
     <Compile Include="Querying\Criteria\DetachedCriteriaVsCriteria.cs" />
     <Compile Include="Querying\Criteria\Ordering.cs" />
+    <Compile Include="Querying\Criteria\Paging.cs" />
     <Compile Include="Querying\Criteria\UniqueResult.cs" />
     <Compile Include="SessionFactoryBuilders\FileHelper.cs" />
     <Compile Include="SessionFactoryBuilders\ISessionFactoryBuilder.cs" />

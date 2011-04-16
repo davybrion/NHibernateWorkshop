@@ -3,7 +3,7 @@ using System.Linq;
 using Northwind.Entities;
 using NUnit.Framework;
 
-namespace NHibernateWorkshop.Performance
+namespace NHibernateWorkshop.Querying.Criteria
 {
     [TestFixture]
     public class Paging : AutoRollbackFixture
