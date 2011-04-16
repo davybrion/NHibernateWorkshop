@@ -35,10 +35,13 @@ namespace NHibernateWorkshop
             var customers = WithAddress(new DomainGenerator())
                 .With<Customer>(options => options.Ignore(customer => customer.Id))
                 .OneToOne<Customer, Address>((customer, address) => customer.Address = address)
+                .With<Customer>(options => options.For(customer => customer.Name, new StringGenerator(5, 100)))
                 .With<Customer>(options => options.For(customer => customer.DiscountPercentage, new DoubleGenerator(0, 25)))
                 .ForEach<Customer>(customer => session.Save(customer))
                 .Many<Customer>(20, 40)
                 .ToArray();
+
+            var customers2 = customers.Where(c => c.Name.Length < 5);
 
             var managers = EmployeeGenerator(session)
                 .ForEach<Employee>(employee => session.Save(employee))
