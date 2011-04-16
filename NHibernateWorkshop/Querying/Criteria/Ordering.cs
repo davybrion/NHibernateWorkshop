@@ -28,10 +28,10 @@ namespace NHibernateWorkshop.Querying.Criteria
             var orders = Session.CreateCriteria<Order>()
                 .CreateCriteria("Customer", "c", JoinType.InnerJoin)
                 .AddOrder(new NHibernate.Criterion.Order("c.DiscountPercentage", false))
-                .SetMaxResults(10)
+                .SetMaxResults(50)
                 .List<Order>();
 
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < 49; i++)
             {
                 Assert.GreaterOrEqual(orders[i].Customer.DiscountPercentage, orders[i+1].Customer.DiscountPercentage);
             }

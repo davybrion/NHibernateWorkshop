@@ -123,6 +123,7 @@
     <Compile Include="Querying\Criteria\Paging.cs" />
     <Compile Include="Querying\Criteria\UniqueResult.cs" />
     <Compile Include="Querying\HQL\Count.cs" />
+    <Compile Include="Querying\HQL\Ordering.cs" />
     <Compile Include="Querying\HQL\UniqueResult.cs" />
     <Compile Include="SessionFactoryBuilders\FileHelper.cs" />
     <Compile Include="SessionFactoryBuilders\ISessionFactoryBuilder.cs" />
