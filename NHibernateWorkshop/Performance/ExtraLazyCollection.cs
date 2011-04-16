@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace NHibernateWorkshop.Performance
 {
     [TestFixture]
-    public class ExtraLazyCollectionFixture : AutoRollbackFixture
+    public class ExtraLazyCollection : AutoRollbackFixture
     {
         private int _productId;
         private IEnumerable<ProductSource> _sources;

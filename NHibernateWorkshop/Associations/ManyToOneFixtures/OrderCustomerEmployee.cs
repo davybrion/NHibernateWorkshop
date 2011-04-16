@@ -7,7 +7,7 @@ namespace NHibernateWorkshop.AssociationFixtures.ManyToOneFixtures
     // Order.Customer is a unidirectional association with a save-update cascade setting
     // Order.Employee is a unidirectional association with no cascade setting
     [TestFixture]
-    public class OrderCustomerEmployeeFixture : AutoRollbackFixture
+    public class OrderCustomerEmployee : AutoRollbackFixture
     {
         private Order _order;
         private Customer _customer;

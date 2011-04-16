@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace NHibernateWorkshop.Performance
 {
     [TestFixture]
-    public class FuturesFixture : AutoRollbackFixture
+    public class Futures : AutoRollbackFixture
     {
         [Test]
         public void future_list_queries_are_not_executed_until_a_result_is_accessed()

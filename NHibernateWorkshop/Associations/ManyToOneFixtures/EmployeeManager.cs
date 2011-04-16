@@ -8,7 +8,7 @@ namespace NHibernateWorkshop.AssociationFixtures.ManyToOneFixtures
     // keep in mind that any manipulation of the Employee.Manager association is NOT reflected
     // in the manager's Subordinates collection (the other side of this bidirectional association)!
     [TestFixture]
-    public class EmployeeManagerFixture : AutoRollbackFixture
+    public class EmployeeManager : AutoRollbackFixture
     {
         private Employee _employee;
         private Employee _manager;

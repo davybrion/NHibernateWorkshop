@@ -1,4 +1,5 @@
 using System;
+using NHibernateWorkshop.Crud;
 using NHibernateWorkshop.SessionFactoryBuilders;
 using Northwind.Builders;
 using Northwind.Components;

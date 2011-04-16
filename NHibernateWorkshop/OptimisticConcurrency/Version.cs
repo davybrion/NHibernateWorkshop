@@ -5,7 +5,7 @@ using NUnit.Framework;
 namespace NHibernateWorkshop.OptimisticConcurrency
 {
     [TestFixture]
-    public class ProductVersionFixture : Fixture
+    public class Version : Fixture
     {
         private Product _product;
 

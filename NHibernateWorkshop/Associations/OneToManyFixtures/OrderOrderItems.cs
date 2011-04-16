@@ -7,7 +7,7 @@ namespace NHibernateWorkshop.AssociationFixtures.OneToManyFixtures
 {
     // Order.Items is a unidirectional relationship where Order assumes full ownership of the relationship
     [TestFixture]
-    public class OrderOrderItemsFixture : AutoRollbackFixture
+    public class OrderOrderItems : AutoRollbackFixture
     {
         private Order _order;
         private OrderItem _item1;

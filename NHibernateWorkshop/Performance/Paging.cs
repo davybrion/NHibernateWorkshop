@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace NHibernateWorkshop.Performance
 {
     [TestFixture]
-    public class PagingFixture : AutoRollbackFixture
+    public class Paging : AutoRollbackFixture
     {
         private IEnumerable<Employee> _employees;
 

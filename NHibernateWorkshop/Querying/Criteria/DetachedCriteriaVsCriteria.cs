@@ -5,7 +5,7 @@ using NUnit.Framework;
 namespace NHibernateWorkshop.Querying.Criteria
 {
     [TestFixture]
-    public class DetachedCriteriaVsICriteriaFixture : Fixture
+    public class DetachedCriteriaVsCriteria : Fixture
     {
         [Test]
         public void detached_criteria_can_be_created_outside_of_session_scope()

@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace NHibernateWorkshop.OptimisticConcurrency
 {
     [TestFixture]
-    public class EmployeeOptimisticLockDirtyFixture : Fixture
+    public class OptimisticLockDirty : Fixture
     {
         private Employee _employee;
 

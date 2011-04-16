@@ -1,3 +1,4 @@
+using NHibernateWorkshop.Crud;
 using Northwind.Builders;
 using Northwind.Components;
 using Northwind.Entities;

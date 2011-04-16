@@ -7,7 +7,7 @@ namespace NHibernateWorkshop.AssociationFixtures.OneToManyFixtures
 {
     // Employees.Subordinates is the inverse end of a bidirectional relationship, with save-update cascading
     [TestFixture]
-    public class EmployeeSubordinatesFixture : AutoRollbackFixture
+    public class EmployeeSubordinates : AutoRollbackFixture
     {
         private Employee _manager;
         private Employee _subordinate1;

@@ -7,7 +7,7 @@ namespace NHibernateWorkshop.AssociationFixtures.OneToManyFixtures
 {
     // Product.Sources is the inverse end of a bidirectional relationship, with all-delete-orphan cascading
     [TestFixture]
-    public class ProductProductSourcesFixture : AutoRollbackFixture
+    public class ProductProductSources : AutoRollbackFixture
     {
         private Product _product;
         private Supplier _supplier1;

@@ -1,7 +1,7 @@
 using Northwind.Entities;
 using NUnit.Framework;
 
-namespace NHibernateWorkshop.CrudFixtures
+namespace NHibernateWorkshop.Crud
 {
     public abstract class CrudFixture<TEntity, TId> : AutoRollbackFixture 
         where TEntity : Entity<TId> 
