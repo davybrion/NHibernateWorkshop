@@ -113,11 +113,12 @@
     <Compile Include="Associations\OneToManyFixtures\ProductProductSourcesFixture.cs" />
     <Compile Include="AutoRollbackFixture.cs" />
     <Compile Include="ExtensionMethods.cs" />
-    <Compile Include="OptimisticConcurrency\EmployeeOptimisticLockDirty.cs" />
+    <Compile Include="OptimisticConcurrency\EmployeeOptimisticLockDirtyFixture.cs" />
     <Compile Include="OptimisticConcurrency\ProductVersionFixture.cs" />
     <Compile Include="Performance\ExtraLazyCollectionFixture.cs" />
     <Compile Include="Performance\FuturesFixture.cs" />
     <Compile Include="Performance\PagingFixture.cs" />
+    <Compile Include="Querying\Criteria\CountFixture.cs" />
     <Compile Include="SessionFactoryBuilders\FileHelper.cs" />
     <Compile Include="SessionFactoryBuilders\ISessionFactoryBuilder.cs" />
     <Compile Include="SessionFactoryBuilders\SQLiteFluentSessionFactoryBuilder.cs" />

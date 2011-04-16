@@ -1,4 +1,5 @@
 using NHibernate.Criterion;
+using Northwind.Builders;
 using Northwind.Entities;
 using NUnit.Framework;
 
@@ -27,5 +28,16 @@ namespace NHibernateWorkshop.Performance
             var blah = supplierCount.Value;
         }
 
+        [Test]
+        public void future_get_by_id_retrieves_selected_record_only_when_it_is_accessed()
+        {
+            var newCustomer = new CustomerBuilder().Build();
+            Session.Save(newCustomer);
+            FlushAndClear();
+            var retrievedNewCustomer = Session.QueryOver<Customer>().Where(c => c.Id == newCustomer.Id).FutureValue();
+            Logger.Info("at this point, the select statement has not been executed yet");
+            Logger.Info("it will be executed once we try to access the retrieved value");
+            var id = retrievedNewCustomer.Value.Id;
+        }
     }
 }
