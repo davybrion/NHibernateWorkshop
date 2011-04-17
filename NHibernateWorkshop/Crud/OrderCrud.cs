@@ -1,15 +1,13 @@
 using System;
-using NHibernateWorkshop.Crud;
-using NHibernateWorkshop.SessionFactoryBuilders;
 using Northwind.Builders;
 using Northwind.Components;
 using Northwind.Entities;
 using NUnit.Framework;
 
-namespace NHibernateWorkshop.CrudFixtures
+namespace NHibernateWorkshop.Crud
 {
     [TestFixture]
-    public class OrderCrudFixture : CrudFixture<Order, Guid> 
+    public class OrderCrud : CrudFixture<Order, Guid> 
     {
         protected override Order BuildEntity()
         {

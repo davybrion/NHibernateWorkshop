@@ -1,13 +1,12 @@
-using NHibernateWorkshop.Crud;
 using Northwind.Builders;
 using Northwind.Components;
 using Northwind.Entities;
 using NUnit.Framework;
 
-namespace NHibernateWorkshop.CrudFixtures
+namespace NHibernateWorkshop.Crud
 {
     [TestFixture]
-    public class EmployeeCrudFixture : CrudFixture<Employee, int> 
+    public class EmployeeCrud : CrudFixture<Employee, int> 
     {
         protected override Employee BuildEntity()
         {
