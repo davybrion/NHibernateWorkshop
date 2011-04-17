@@ -1,4 +1,5 @@
 using NHibernate.Criterion;
+using Northwind.Builders;
 using Northwind.Entities;
 using NUnit.Framework;
 
@@ -7,6 +8,11 @@ namespace NHibernateWorkshop.Querying.Criteria
     [TestFixture]
     public class Count : AutoRollbackFixture
     {
+        protected override void AfterSetUp()
+        {
+            Session.Save(new CustomerBuilder().WithDiscountPercentage(0.2d).Build());
+        }
+
         [Test]
         public void setting_rowcount_projection_of_detached_criteria_returns_size_of_resultset()
         {

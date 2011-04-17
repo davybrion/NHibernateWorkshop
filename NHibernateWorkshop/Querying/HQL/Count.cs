@@ -1,3 +1,4 @@
+using Northwind.Builders;
 using NUnit.Framework;
 
 namespace NHibernateWorkshop.Querying.HQL
@@ -5,6 +6,11 @@ namespace NHibernateWorkshop.Querying.HQL
     [TestFixture]
     public class Count : AutoRollbackFixture
     {
+        protected override void AfterSetUp()
+        {
+            Session.Save(new CustomerBuilder().WithDiscountPercentage(0.2d).Build());
+        }
+
         [Test]
         public void selecting_count_from_resultset_returns_size_of_resultset()
         {
