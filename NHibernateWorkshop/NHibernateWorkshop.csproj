@@ -126,6 +126,7 @@
     <Compile Include="Querying\HQL\Ordering.cs" />
     <Compile Include="Querying\HQL\Paging.cs" />
     <Compile Include="Querying\HQL\UniqueResult.cs" />
+    <Compile Include="Querying\LINQ\Count.cs" />
     <Compile Include="Querying\QueryOver\Count.cs" />
     <Compile Include="Querying\QueryOver\DetachedQueryOverVsQueryOver.cs" />
     <Compile Include="Querying\QueryOver\Ordering.cs" />
