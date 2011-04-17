@@ -4,7 +4,6 @@ using Northwind.Components;
 using Northwind.Entities;
 using Northwind.Enums;
 using QuickGenerate;
-using QuickGenerate.Meta;
 using QuickGenerate.Primitives;
 
 namespace NHibernateWorkshop
