@@ -10,7 +10,7 @@ namespace NHibernateWorkshop.Querying.HQL
         private const string _customerName = "TestCustomer";
 
         [Test]
-        public void unique_result_returns_one_value_instead_of_list_with_one_value()
+        public void uniqueresult_returns_one_value_instead_of_list_with_one_value()
         {
             Session.Save(new CustomerBuilder().WithName(_customerName).Build());
             FlushAndClear();
@@ -26,6 +26,19 @@ namespace NHibernateWorkshop.Querying.HQL
                 .SetParameter("name", _customerName)
                 .UniqueResult<Customer>().Name;
             Assert.AreEqual(_customerName, nameThroughUniqueResult);
+        }
+
+        [Test]
+        public void uniqueresult_fails_when_resultset_contains_more_than_one_row()
+        {
+            Session.Save(new CustomerBuilder().WithName(_customerName).Build());
+            Session.Save(new CustomerBuilder().WithName(_customerName).Build());
+            FlushAndClear();
+
+            Assert.Throws<NHibernate.NonUniqueResultException>(
+                () => Session.CreateQuery("from Customer c where c.Name = :name")
+                          .SetParameter("name", _customerName)
+                          .UniqueResult<Customer>());
         }
     }
 }
