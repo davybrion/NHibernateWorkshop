@@ -1,5 +1,4 @@
 using NHibernate;
-using NHibernate.SqlCommand;
 using Northwind.Entities;
 using NUnit.Framework;
 
@@ -26,7 +25,7 @@ namespace NHibernateWorkshop.Querying.Criteria
         public void order_by_joined_property()
         {
             var orders = Session.CreateCriteria<Order>()
-                .CreateCriteria("Customer", "c", JoinType.InnerJoin)
+                .CreateCriteria("Customer", "c")
                 .AddOrder(new NHibernate.Criterion.Order("c.DiscountPercentage", false))
                 .SetMaxResults(50)
                 .List<Order>();

@@ -127,6 +127,7 @@
     <Compile Include="Querying\HQL\Paging.cs" />
     <Compile Include="Querying\HQL\UniqueResult.cs" />
     <Compile Include="Querying\QueryOver\Count.cs" />
+    <Compile Include="Querying\QueryOver\Ordering.cs" />
     <Compile Include="SessionFactoryBuilders\FileHelper.cs" />
     <Compile Include="SessionFactoryBuilders\ISessionFactoryBuilder.cs" />
     <Compile Include="SessionFactoryBuilders\SQLiteFluentSessionFactoryBuilder.cs" />
