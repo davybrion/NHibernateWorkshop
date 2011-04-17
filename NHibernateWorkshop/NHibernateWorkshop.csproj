@@ -130,6 +130,7 @@
     <Compile Include="Querying\QueryOver\DetachedQueryOverVsQueryOver.cs" />
     <Compile Include="Querying\QueryOver\Ordering.cs" />
     <Compile Include="Querying\QueryOver\Paging.cs" />
+    <Compile Include="Querying\QueryOver\UniqueResult.cs" />
     <Compile Include="SessionFactoryBuilders\FileHelper.cs" />
     <Compile Include="SessionFactoryBuilders\ISessionFactoryBuilder.cs" />
     <Compile Include="SessionFactoryBuilders\SQLiteFluentSessionFactoryBuilder.cs" />
