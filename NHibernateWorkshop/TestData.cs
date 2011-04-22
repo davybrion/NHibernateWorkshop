@@ -13,6 +13,7 @@ namespace NHibernateWorkshop
         private static DomainGenerator WithAddress(DomainGenerator generator)
         {
             return generator
+                .Component<Address>()
                 .With<Address>(options => options.For(address => address.Street, new StringGenerator(1, 100)))
                 .With<Address>(options => options.For(address => address.City, new StringGenerator(1, 100)))
                 .With<Address>(options => options.For(address => address.Country, new StringGenerator(1, 100)));
@@ -22,7 +23,6 @@ namespace NHibernateWorkshop
         {
             return WithAddress(new DomainGenerator())
                 .With<Employee>(options => options.Ignore(employee => employee.Id))
-                .OneToOne<Employee, Address>((employee, address) => employee.Address = address)
                 .With<Employee>(options => options.For(employee => employee.FirstName, new StringGenerator(1, 50)))
                 .With<Employee>(options => options.For(employee => employee.LastName, new StringGenerator(1, 75)))
                 .With<Employee>(options => options.For(employee => employee.Title, new StringGenerator(1, 50)))
@@ -33,7 +33,6 @@ namespace NHibernateWorkshop
         {
             var customers = WithAddress(new DomainGenerator())
                 .With<Customer>(options => options.Ignore(customer => customer.Id))
-                .OneToOne<Customer, Address>((customer, address) => customer.Address = address)
                 .With<Customer>(options => options.For(customer => customer.Name, new StringGenerator(5, 100)))
                 .With<Customer>(options => options.For(customer => customer.DiscountPercentage, new DoubleGenerator(0, 25)))
                 .ForEach<Customer>(customer => session.Save(customer))
@@ -52,7 +51,6 @@ namespace NHibernateWorkshop
 
             var suppliers = WithAddress(new DomainGenerator())
                 .With<Supplier>(options => options.Ignore(supplier => supplier.Id))
-                .OneToOne<Supplier, Address>((supplier, address) => supplier.Address = address)
                 .With<Supplier>(options => options.For(supplier => supplier.Website, new StringGenerator(1, 100)))
                 .Many<Supplier>(20)
                 .ToArray();

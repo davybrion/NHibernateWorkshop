@@ -91,9 +91,8 @@
     <Reference Include="pnunit.framework">
       <HintPath>..\packages\NUnit.2.5.9.10348\lib\pnunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="QuickGenerate, Version=0.4.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\QuickGenerate-0.4.3\QuickGenerate.dll</HintPath>
+    <Reference Include="QuickGenerate">
+      <HintPath>..\packages\QuickGenerate-0.4.4\QuickGenerate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
