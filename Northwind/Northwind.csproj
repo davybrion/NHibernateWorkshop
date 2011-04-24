@@ -83,6 +83,7 @@
     <Compile Include="Builders\SupplierBuilder.cs" />
     <Compile Include="Builders\ThirdPartyBuilder.cs" />
     <Compile Include="Components\Address.cs" />
+    <Compile Include="Dtos\OrderHeader.cs" />
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\Employee.cs" />
     <Compile Include="Entities\Entity.cs" />
@@ -127,7 +128,9 @@
   <ItemGroup>
     <EmbeddedResource Include="MappingFiles\ProductSource.hbm.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="MappingFiles\Imports.hbm.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
