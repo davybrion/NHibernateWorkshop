@@ -118,6 +118,7 @@
     <Compile Include="Performance\Futures.cs" />
     <Compile Include="Querying\Criteria\Count.cs" />
     <Compile Include="Querying\Criteria\DetachedCriteriaVsCriteria.cs" />
+    <Compile Include="Querying\Criteria\Joins.cs" />
     <Compile Include="Querying\Criteria\Ordering.cs" />
     <Compile Include="Querying\Criteria\Paging.cs" />
     <Compile Include="Querying\Criteria\Projecting.cs" />
@@ -142,6 +143,7 @@
     <Compile Include="Querying\QueryOver\Projecting.cs" />
     <Compile Include="Querying\QueryOver\SubQuery.cs" />
     <Compile Include="Querying\QueryOver\UniqueResult.cs" />
+    <Compile Include="ReflectionHelper.cs" />
     <Compile Include="SessionFactoryBuilders\FileHelper.cs" />
     <Compile Include="SessionFactoryBuilders\ISessionFactoryBuilder.cs" />
     <Compile Include="SessionFactoryBuilders\SQLiteFluentSessionFactoryBuilder.cs" />
