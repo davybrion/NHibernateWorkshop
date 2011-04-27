@@ -138,6 +138,7 @@
     <Compile Include="Querying\LINQ\UniqueResult.cs" />
     <Compile Include="Querying\QueryOver\Count.cs" />
     <Compile Include="Querying\QueryOver\DetachedQueryOverVsQueryOver.cs" />
+    <Compile Include="Querying\QueryOver\Joins.cs" />
     <Compile Include="Querying\QueryOver\Ordering.cs" />
     <Compile Include="Querying\QueryOver\Paging.cs" />
     <Compile Include="Querying\QueryOver\Projecting.cs" />

@@ -9,6 +9,5 @@ namespace NHibernateWorkshop
             var type = theObject.GetType();
             return type.GetField(fieldName, BindingFlags.Instance | BindingFlags.NonPublic).GetValue(theObject);
         }
-
     }
 }
