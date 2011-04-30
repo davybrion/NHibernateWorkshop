@@ -8,7 +8,7 @@ using Order = Northwind.Entities.Order;
 namespace NHibernateWorkshop.Querying.HQL
 {
     [TestFixture]
-    public class Joins : AutoRollbackFixture
+    public class FetchingJoins : AutoRollbackFixture
     {
         [Test]
         public void join_on_a_many_to_one_with_explicit_fetch()

@@ -118,14 +118,14 @@
     <Compile Include="Performance\Futures.cs" />
     <Compile Include="Querying\Criteria\Count.cs" />
     <Compile Include="Querying\Criteria\DetachedCriteriaVsCriteria.cs" />
-    <Compile Include="Querying\Criteria\Joins.cs" />
+    <Compile Include="Querying\Criteria\FetchingJoins.cs" />
     <Compile Include="Querying\Criteria\Ordering.cs" />
     <Compile Include="Querying\Criteria\Paging.cs" />
     <Compile Include="Querying\Criteria\Projecting.cs" />
     <Compile Include="Querying\Criteria\SubQuery.cs" />
     <Compile Include="Querying\Criteria\UniqueResult.cs" />
     <Compile Include="Querying\HQL\Count.cs" />
-    <Compile Include="Querying\HQL\Joins.cs" />
+    <Compile Include="Querying\HQL\FetchingJoins.cs" />
     <Compile Include="Querying\HQL\Ordering.cs" />
     <Compile Include="Querying\HQL\Paging.cs" />
     <Compile Include="Querying\HQL\Projecting.cs" />
@@ -139,7 +139,7 @@
     <Compile Include="Querying\LINQ\UniqueResult.cs" />
     <Compile Include="Querying\QueryOver\Count.cs" />
     <Compile Include="Querying\QueryOver\DetachedQueryOverVsQueryOver.cs" />
-    <Compile Include="Querying\QueryOver\Joins.cs" />
+    <Compile Include="Querying\QueryOver\FetchingJoins.cs" />
     <Compile Include="Querying\QueryOver\Ordering.cs" />
     <Compile Include="Querying\QueryOver\Paging.cs" />
     <Compile Include="Querying\QueryOver\Projecting.cs" />
