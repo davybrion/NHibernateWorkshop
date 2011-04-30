@@ -58,6 +58,10 @@ namespace NHibernateWorkshop.Querying.HQL
 
             Assert.IsTrue(employeesWithOrWithoutManagers.Contains(employeeWithoutManager));
             Assert.IsTrue(employeesWithOrWithoutManagers.Contains(employeeWithManager));
+
+            // Comment out the query above and you'll see these two asserts don't actually test anything. 
+            // You're asserting the wrong instance.
+            // Probably similar circumstances in other tests
             Assert.IsNull(employeeWithoutManager.Manager);
             Assert.IsTrue(NHibernateUtil.IsInitialized(employeeWithManager.Manager));
         }
