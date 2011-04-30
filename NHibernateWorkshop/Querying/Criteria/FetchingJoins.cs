@@ -13,7 +13,7 @@ namespace NHibernateWorkshop.Querying.Criteria
     public class FetchingJoins : AutoRollbackFixture
     {
         [Test]
-        public void join_on_a_many_to_one_with_implicit_inner_join()
+        public void fetch_join_on_a_many_to_one_with_implicit_inner_join()
         {
             var ordersWithCustomers = Session.CreateCriteria<Order>()
                 .SetFetchMode("Customer", FetchMode.Join) // implicit inner join because Customer is a required property
@@ -24,7 +24,7 @@ namespace NHibernateWorkshop.Querying.Criteria
         }
 
         [Test]
-        public void join_on_a_many_to_one_with_implicit_outer_join()
+        public void fetch_join_on_a_many_to_one_with_implicit_outer_join()
         {
             var employeeWithoutManager = new EmployeeBuilder().Build();
             Session.Save(employeeWithoutManager);
@@ -45,7 +45,7 @@ namespace NHibernateWorkshop.Querying.Criteria
         }
 
         [Test]
-        public void join_on_a_many_to_one_with_explicit_inner_join()
+        public void fetch_join_on_a_many_to_one_with_explicit_inner_join()
         {
             var employeeWithoutManager = new EmployeeBuilder().Build();
             Session.Save(employeeWithoutManager);
@@ -65,7 +65,7 @@ namespace NHibernateWorkshop.Querying.Criteria
         }
 
         [Test]
-        public void join_on_a_many_to_one_and_one_of_its_many_to_ones()
+        public void fetch_join_on_a_many_to_one_and_one_of_its_many_to_ones()
         {
             var ordersWithEmployeesAndTheirManagers = Session.CreateCriteria<Order>()
                 .CreateCriteria("Employee", "e")
@@ -84,7 +84,7 @@ namespace NHibernateWorkshop.Querying.Criteria
         }
 
         [Test]
-        public void join_on_two_many_to_ones_with_implicit_inner_joins()
+        public void fetch_join_on_two_many_to_ones_with_implicit_inner_joins()
         {
             var ordersWithCustomersAndEmployees = Session.CreateCriteria<Order>()
                 .SetFetchMode("Employee", FetchMode.Join)
@@ -96,7 +96,7 @@ namespace NHibernateWorkshop.Querying.Criteria
         }
 
         [Test]
-        public void join_on_one_to_many_without_distinct_result_transformer()
+        public void fetch_join_on_one_to_many_without_distinct_result_transformer()
         {
             var ordersWithItems = Session.CreateCriteria<Order>()
                 .SetFetchMode("Items", FetchMode.Join)
@@ -116,7 +116,7 @@ namespace NHibernateWorkshop.Querying.Criteria
         }
 
         [Test]
-        public void join_on_one_to_many_with_distinct_result_transformer()
+        public void fetch_join_on_one_to_many_with_distinct_result_transformer()
         {
             var ordersWithItems = Session.CreateCriteria<Order>()
                 .SetFetchMode("Items", FetchMode.Join)
@@ -132,7 +132,7 @@ namespace NHibernateWorkshop.Querying.Criteria
         }
 
         [Test]
-        public void join_on_one_to_many_and_one_of_its_many_to_ones()
+        public void fetch_join_on_one_to_many_and_one_of_its_many_to_ones()
         {
             var ordersWithItemsAndProducts = Session.CreateCriteria<Order>()
                 .CreateCriteria("Items", "items", JoinType.LeftOuterJoin) 

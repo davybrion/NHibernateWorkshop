@@ -12,7 +12,7 @@ namespace NHibernateWorkshop.Querying.QueryOver
     public class FetchingJoins : AutoRollbackFixture
     {
         [Test]
-        public void join_on_a_many_to_one_with_implicit_inner_join()
+        public void fetch_join_on_a_many_to_one_with_implicit_inner_join()
         {
             var ordersWithCustomers = Session.QueryOver<Order>()
                 .JoinQueryOver(o => o.Customer) // implicit inner join because Customer is a required property
@@ -23,7 +23,7 @@ namespace NHibernateWorkshop.Querying.QueryOver
         }
 
         [Test]
-        public void join_on_optional_many_to_one_does_not_do_implicit_outer_join()
+        public void fetch_join_on_optional_many_to_one_does_not_do_implicit_outer_join()
         {
             var employeeWithoutManager = new EmployeeBuilder().Build();
             Session.Save(employeeWithoutManager);
@@ -45,7 +45,7 @@ namespace NHibernateWorkshop.Querying.QueryOver
         }
 
         [Test]
-        public void join_on_optional_many_to_one_with_explicit_outer_join()
+        public void fetch_join_on_optional_many_to_one_with_explicit_outer_join()
         {
             var employeeWithoutManager = new EmployeeBuilder().Build();
             Session.Save(employeeWithoutManager);
@@ -66,7 +66,7 @@ namespace NHibernateWorkshop.Querying.QueryOver
         }
 
         [Test]
-        public void join_on_a_many_to_one_and_one_of_its_many_to_ones()
+        public void fetch_join_on_a_many_to_one_and_one_of_its_many_to_ones()
         {
             var ordersWithEmployeesAndTheirManagers = Session.QueryOver<Order>()
                 .JoinQueryOver(o => o.Employee)
@@ -85,7 +85,7 @@ namespace NHibernateWorkshop.Querying.QueryOver
         }
 
         [Test]
-        public void join_on_two_many_to_ones_with_implicit_inner_joins()
+        public void fetch_join_on_two_many_to_ones_with_implicit_inner_joins()
         {
             Employee employee = null;
             Customer customer = null;
@@ -100,7 +100,7 @@ namespace NHibernateWorkshop.Querying.QueryOver
         }
 
         [Test]
-        public void join_on_one_to_many_without_distinct_result_transformer()
+        public void fetch_join_on_one_to_many_without_distinct_result_transformer()
         {
             var ordersWithItems = Session.QueryOver<Order>()
                 .JoinQueryOver(o => o.Items)
@@ -115,7 +115,7 @@ namespace NHibernateWorkshop.Querying.QueryOver
         }
 
         [Test]
-        public void join_on_one_to_many_with_distinct_result_transformer()
+        public void fetch_join_on_one_to_many_with_distinct_result_transformer()
         {
             var ordersWithItems = Session.QueryOver<Order>()
                 .JoinQueryOver(o => o.Items, JoinType.LeftOuterJoin)
@@ -131,7 +131,7 @@ namespace NHibernateWorkshop.Querying.QueryOver
         }
 
         [Test]
-        public void join_on_one_to_many_and_one_of_its_many_to_ones()
+        public void fetch_join_on_one_to_many_and_one_of_its_many_to_ones()
         {
             var ordersWithItemsAndProducts = Session.QueryOver<Order>()
                 .JoinQueryOver(o => o.Items, JoinType.LeftOuterJoin)

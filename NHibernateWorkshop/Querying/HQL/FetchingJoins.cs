@@ -11,7 +11,7 @@ namespace NHibernateWorkshop.Querying.HQL
     public class FetchingJoins : AutoRollbackFixture
     {
         [Test]
-        public void join_on_a_many_to_one_with_explicit_fetch()
+        public void fetch_join_on_a_many_to_one_with_explicit_fetch()
         {
             var ordersWithCustomers = Session.CreateQuery("from Order o join fetch o.Customer").List<Order>();
             // IsInitialized would return false if Customer was a proxy
@@ -19,7 +19,7 @@ namespace NHibernateWorkshop.Querying.HQL
         }
 
         [Test]
-        public void join_on_a_many_to_one_without_explicit_fetch_and_without_select()
+        public void fetch_join_on_a_many_to_one_without_explicit_fetch_and_without_select()
         {
             // if you don't specify a fetch or a select, you can only retrieve an object array
             var ordersWithCustomers = Session.CreateQuery("from Order o join o.Customer").List<object[]>();
@@ -34,7 +34,7 @@ namespace NHibernateWorkshop.Querying.HQL
         }
 
         [Test]
-        public void join_on_a_many_to_one_without_explicit_fetch_and_with_select()
+        public void fetch_join_on_a_many_to_one_without_explicit_fetch_and_with_select()
         {
             var ordersWithCustomers = Session.CreateQuery("select o from Order o join o.Customer").List<Order>();
             // despite the join, the order instances don't have their customer initialized yet and accessing the customer would
@@ -43,7 +43,7 @@ namespace NHibernateWorkshop.Querying.HQL
         }
 
         [Test]
-        public void outer_join_on_an_optional_many_to_one()
+        public void fetch_outer_join_on_an_optional_many_to_one()
         {
             var employeeWithoutManager = new EmployeeBuilder().Build();
             Session.Save(employeeWithoutManager);
@@ -63,7 +63,7 @@ namespace NHibernateWorkshop.Querying.HQL
         }
 
         [Test]
-        public void inner_join_on_an_optional_many_to_one()
+        public void fetch_inner_join_on_an_optional_many_to_one()
         {
             var employeeWithoutManager = new EmployeeBuilder().Build();
             Session.Save(employeeWithoutManager);
@@ -81,7 +81,7 @@ namespace NHibernateWorkshop.Querying.HQL
         }
 
         [Test]
-        public void join_on_a_many_to_one_and_one_of_its_many_to_ones()
+        public void fetch_join_on_a_many_to_one_and_one_of_its_many_to_ones()
         {
             var ordersWithEmployeesAndTheirManagers =
                 Session.CreateQuery("from Order o join fetch o.Employee e left join fetch e.Manager").List<Order>();
@@ -98,7 +98,7 @@ namespace NHibernateWorkshop.Querying.HQL
         }
 
         [Test]
-        public void join_on_two_many_to_ones()
+        public void fetch_join_on_two_many_to_ones()
         {
             var ordersWithCustomersAndEmployees =
                 Session.CreateQuery("from Order o join fetch o.Customer join fetch o.Employee").List<Order>();
@@ -108,7 +108,7 @@ namespace NHibernateWorkshop.Querying.HQL
         }
 
         [Test]
-        public void join_on_one_to_many_without_distinct_result_transformer()
+        public void fetch_join_on_one_to_many_without_distinct_result_transformer()
         {
             var ordersWithItems = Session.CreateQuery("from Order o join fetch o.Items").List<Order>();
             var orderCount = Session.CreateQuery("select count(o) from Order o").UniqueResult();
@@ -120,7 +120,7 @@ namespace NHibernateWorkshop.Querying.HQL
         }
 
         [Test]
-        public void join_on_one_to_many_with_distinct_result_transformer()
+        public void fetch_join_on_one_to_many_with_distinct_result_transformer()
         {
             var ordersWithItems = Session.CreateQuery("from Order o join fetch o.Items")
                 .SetResultTransformer(new DistinctRootEntityResultTransformer()).List<Order>();
@@ -131,7 +131,7 @@ namespace NHibernateWorkshop.Querying.HQL
         }
 
         [Test]
-        public void join_on_one_to_many_with_distinct_keyword()
+        public void fetch_join_on_one_to_many_with_distinct_keyword()
         {
             var ordersWithItems = Session.CreateQuery("select distinct o from Order o join fetch o.Items").List<Order>();
             var orderCount = Session.CreateQuery("select count(o) from Order o").UniqueResult();
@@ -143,7 +143,7 @@ namespace NHibernateWorkshop.Querying.HQL
         }
 
         [Test]
-        public void join_on_one_to_many_and_one_of_its_many_to_ones()
+        public void fetch_join_on_one_to_many_and_one_of_its_many_to_ones()
         {
             var ordersWithItemsAndProducts =
                 Session.CreateQuery("from Order o join fetch o.Items items join fetch items.Product")
