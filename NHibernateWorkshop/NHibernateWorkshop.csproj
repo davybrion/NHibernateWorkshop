@@ -112,6 +112,7 @@
     <Compile Include="Associations\OneToManyFixtures\ProductProductSources.cs" />
     <Compile Include="AutoRollbackFixture.cs" />
     <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="OptimisticConcurrency\OptimisticLockAll.cs" />
     <Compile Include="OptimisticConcurrency\OptimisticLockDirty.cs" />
     <Compile Include="OptimisticConcurrency\Version.cs" />
     <Compile Include="Performance\ExtraLazyCollection.cs" />

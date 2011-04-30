@@ -9,6 +9,9 @@ namespace Northwind.FluentNHibernate.Overrides
     {
         public void Override(AutoMapping<Order> mapping)
         {
+            mapping.DynamicUpdate();
+            mapping.OptimisticLock.All();
+
             // NOTE: this isn't strictly necessary since FluentNHibernate assumes guid.comb for Guid identifiers unless specified otherwhise
             mapping.Id(o => o.Id).GeneratedBy.GuidComb();
 

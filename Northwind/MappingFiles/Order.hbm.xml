@@ -2,7 +2,7 @@
 
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Northwind.Entities" assembly="Northwind">
 
-  <class name="Order" table="`Order`">
+  <class name="Order" table="`Order`" dynamic-update="true" optimistic-lock="all">
     <id name="Id" column="Id" >
       <generator class="guid.comb" /> 
     </id>
