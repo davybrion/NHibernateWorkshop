@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using NHibernate.Criterion;
 using Northwind.Builders;
@@ -9,18 +10,22 @@ namespace NHibernateWorkshop.Querying.Criteria
     [TestFixture]
     public class AggregateFunctions : AutoRollbackFixture
     {
+        private IList<Product> _products;
+
+        protected override void AfterSetUp()
+        {
+            _products = Session.CreateCriteria<Product>().List<Product>();
+        }
+
         [Test]
         public void count()
         {
-            Session.Save(new CustomerBuilder().WithDiscountPercentage(0.2d).Build());
-            FlushAndClear();
+            var count = Session.CreateCriteria<Product>()
+                .Add(Restrictions.Gt("UnitsInStock", 10))
+                .SetProjection(Projections.RowCount())
+                .UniqueResult();
 
-            var query = DetachedCriteria.For<Customer>()
-                .Add(Restrictions.Gt("DiscountPercentage", 0.2d));
-
-            var resultSet = query.GetExecutableCriteria(Session).List<Customer>();
-            var count = query.SetProjection(Projections.RowCount()).GetExecutableCriteria(Session).UniqueResult();
-            Assert.AreEqual(resultSet.Count, count);
+            Assert.AreEqual(_products.Count(p => p.UnitsInStock > 10), count);
         }
 
         [Test]
@@ -30,9 +35,7 @@ namespace NHibernateWorkshop.Querying.Criteria
                 .SetProjection(Projections.Sum("UnitsInStock"))
                 .UniqueResult<int>();
 
-            var allProducts = Session.CreateCriteria<Product>().List<Product>();
-
-            Assert.AreEqual(allProducts.Sum(p => p.UnitsInStock), totalItemsInStock);
+            Assert.AreEqual(_products.Sum(p => p.UnitsInStock), totalItemsInStock);
         }
 
         [Test]
@@ -42,9 +45,7 @@ namespace NHibernateWorkshop.Querying.Criteria
                 .SetProjection(Projections.Avg("UnitsInStock"))
                 .UniqueResult<double>();
 
-            var allProducts = Session.CreateCriteria<Product>().List<Product>();
-
-            Assert.AreEqual(allProducts.Average(p => p.UnitsInStock), averageItemsInStock);
+            Assert.AreEqual(_products.Average(p => p.UnitsInStock), averageItemsInStock);
         }
 
         [Test]
@@ -54,9 +55,7 @@ namespace NHibernateWorkshop.Querying.Criteria
                 .SetProjection(Projections.Max("UnitsInStock"))
                 .UniqueResult<int>();
 
-            var allProducts = Session.CreateCriteria<Product>().List<Product>();
-
-            Assert.AreEqual(allProducts.Max(p => p.UnitsInStock), mostItemsInStock);
+            Assert.AreEqual(_products.Max(p => p.UnitsInStock), mostItemsInStock);
         }
 
         [Test]
@@ -66,9 +65,7 @@ namespace NHibernateWorkshop.Querying.Criteria
                 .SetProjection(Projections.Min("UnitsInStock"))
                 .UniqueResult<int>();
 
-            var allProducts = Session.CreateCriteria<Product>().List<Product>();
-
-            Assert.AreEqual(allProducts.Min(p => p.UnitsInStock), fewestItemsInStock);
+            Assert.AreEqual(_products.Min(p => p.UnitsInStock), fewestItemsInStock);
         }
     }
 }
