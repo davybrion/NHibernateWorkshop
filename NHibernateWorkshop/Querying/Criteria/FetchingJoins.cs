@@ -140,6 +140,8 @@ namespace NHibernateWorkshop.Querying.Criteria
                 .SetResultTransformer(new DistinctRootEntityResultTransformer())
                 .List<Order>();
 
+            // Looks like a bug to me.
+
             ordersWithItemsAndProducts.Each(o =>
             {
                 // note: using an inner join would make this assertion fail for some unclear reason... it would

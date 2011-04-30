@@ -61,6 +61,8 @@ namespace NHibernateWorkshop.Querying.QueryOver
 
             Assert.IsTrue(employeesWithOrWithoutManagers.Contains(employeeWithoutManager));
             Assert.IsTrue(employeesWithOrWithoutManagers.Contains(employeeWithManager));
+
+            // Again, asserting the wrong instance
             Assert.IsNull(employeeWithoutManager.Manager);
             Assert.IsTrue(NHibernateUtil.IsInitialized(employeeWithManager.Manager));
         }

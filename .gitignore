@@ -3,3 +3,9 @@
 */bin/
 */obj/
 TestResult.xml
+
+# Resharper
+*ReSharper*
+*resharper*
+*.cache
+
