@@ -39,7 +39,7 @@ namespace NHibernateWorkshop.Performance
             var product = Session.Get<Product>(_productId);
             Logger.Info("about to check whether our Sources collection contains one of the known ProductSources");
             Assert.IsTrue(product.Sources.Contains(_sources.ElementAt(0)));
-            Logger.Info("there should be just one count statement and no select of the entire collection");
+            Logger.Info("there should be just one statement and no select of the entire collection");
         }
     }
 }
