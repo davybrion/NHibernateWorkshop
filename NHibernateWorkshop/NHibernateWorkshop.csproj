@@ -124,7 +124,7 @@
     <Compile Include="Querying\Criteria\Projecting.cs" />
     <Compile Include="Querying\Criteria\SubQuery.cs" />
     <Compile Include="Querying\Criteria\UniqueResult.cs" />
-    <Compile Include="Querying\HQL\Count.cs" />
+    <Compile Include="Querying\HQL\AggregateFunctions.cs" />
     <Compile Include="Querying\HQL\FetchingJoins.cs" />
     <Compile Include="Querying\HQL\Ordering.cs" />
     <Compile Include="Querying\HQL\Paging.cs" />
