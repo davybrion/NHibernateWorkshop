@@ -1,5 +1,4 @@
 using NHibernate;
-using NHibernate.Criterion;
 using NHibernate.SqlCommand;
 using NHibernate.Transform;
 using Northwind.Builders;
