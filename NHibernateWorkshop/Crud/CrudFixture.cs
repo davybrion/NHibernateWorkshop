@@ -31,7 +31,7 @@ namespace NHibernateWorkshop.Crud
             var entity = BuildEntity();
             InsertEntity(entity);
             ModifyEntity(entity);
-            UpdateEntity(entity);
+            Session.Flush();
             Session.Evict(entity);
 
             var reloadedEntity = Session.Get<TEntity>(entity.Id);
@@ -48,12 +48,6 @@ namespace NHibernateWorkshop.Crud
         }
 
         protected virtual void InsertEntity(TEntity entity)
-        {
-            Session.Save(entity);
-            Session.Flush();
-        }
-
-        protected virtual void UpdateEntity(TEntity entity)
         {
             Session.Save(entity);
             Session.Flush();
