@@ -1,5 +1,5 @@
 *.user
 *.suo
-*/bin/
-*/obj/
+bin/
+obj/
 TestResult.xml
