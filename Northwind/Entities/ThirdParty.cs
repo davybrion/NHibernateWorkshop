@@ -6,7 +6,7 @@ namespace Northwind.Entities
     {
         protected ThirdParty() {}
 
-        public ThirdParty(string name, Address address)
+        protected ThirdParty(string name, Address address)
         {
             Name = name;
             Address = address;

@@ -30,7 +30,6 @@ namespace Northwind.FluentNHibernate.Overrides
                 .Cascade.AllDeleteOrphan()
                 .KeyColumn("OrderId")
                 .Access.CamelCaseField(Prefix.Underscore);
-
         }
     }
 }

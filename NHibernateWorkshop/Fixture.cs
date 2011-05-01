@@ -20,7 +20,6 @@ namespace NHibernateWorkshop
             SessionFactory = new SQLiteHbmSessionFactoryBuilder().BuildSessionFactory();
 #endif
 
-            // TODO: remove this
             //HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.Initialize();
 
             using (var session = CreateSession())

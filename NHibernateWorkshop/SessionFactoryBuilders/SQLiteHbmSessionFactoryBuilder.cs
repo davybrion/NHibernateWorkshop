@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.IO;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;

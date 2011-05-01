@@ -1,6 +1,5 @@
 using NHibernate;
 using NHibernate.Linq;
-using NHibernate.Transform;
 using Northwind.Builders;
 using Northwind.Entities;
 using NUnit.Framework;

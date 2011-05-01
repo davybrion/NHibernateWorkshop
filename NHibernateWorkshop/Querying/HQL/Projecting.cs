@@ -8,8 +8,6 @@ namespace NHibernateWorkshop.Querying.HQL
     [TestFixture]
     public class Projecting : AutoRollbackFixture
     {
-        // TODO: make this work with FluentNH
-
         [Test]
         public void project_into_dto()
         {

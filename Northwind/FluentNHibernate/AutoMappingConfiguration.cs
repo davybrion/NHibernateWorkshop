@@ -1,6 +1,4 @@
 using FluentNHibernate.Automapping;
-using FluentNHibernate.Utils;
-using Northwind.Entities;
 
 namespace Northwind.FluentNHibernate
 {
