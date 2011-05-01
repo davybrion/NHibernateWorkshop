@@ -40,6 +40,7 @@ namespace NHibernateWorkshop.AssociationFixtures.ManyToOneFixtures
             SaveOrderAndEmployee();
             Clear();
 
+            // works because of our id-based equality implementation 
             Assert.AreEqual(_employee, Session.Get<Order>(_order.Id).Employee);
         }
 
@@ -49,6 +50,7 @@ namespace NHibernateWorkshop.AssociationFixtures.ManyToOneFixtures
             SaveOrderAndEmployee();
             Clear();
 
+            // works because of our id-based equality implementation 
             Assert.AreEqual(_customer, Session.Get<Order>(_order.Id).Customer);
         }
 

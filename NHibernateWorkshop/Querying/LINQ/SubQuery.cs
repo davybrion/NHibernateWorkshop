@@ -21,11 +21,11 @@ namespace NHibernateWorkshop.Querying.LINQ
         [Test]
         public void select_employees_with_no_orders()
         {
-            var idsOfEmployeesWhoHaveOrdes = Session.Query<Order>()
+            var idsOfEmployeesWhoHaveOrders = Session.Query<Order>()
                 .Select(o => o.Employee.Id);
 
             var lazyEmployees = Session.Query<Employee>()
-                .Where(e => idsOfEmployeesWhoHaveOrdes.Count(i => i == e.Id) == 0)
+                .Where(e => idsOfEmployeesWhoHaveOrders.Count(i => i == e.Id) == 0)
                 .ToArray();
 
             // note: if you check the output of this test, you'll see that the subquery joins between Order and Employee

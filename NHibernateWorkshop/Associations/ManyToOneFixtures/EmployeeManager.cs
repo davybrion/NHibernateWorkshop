@@ -47,6 +47,7 @@ namespace NHibernateWorkshop.AssociationFixtures.ManyToOneFixtures
             Clear();
 
             var retrievedEmployee = Session.Get<Employee>(_employee.Id);
+            // works because of our id-based equality implementation 
             Assert.AreEqual(_manager, retrievedEmployee.Manager);
         }
 

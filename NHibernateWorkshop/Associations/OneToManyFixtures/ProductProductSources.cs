@@ -32,6 +32,7 @@ namespace NHibernateWorkshop.AssociationFixtures.OneToManyFixtures
             Clear();
             var retrievedProduct = Session.Get<Product>(_product.Id);
             Assert.AreEqual(2, retrievedProduct.Sources.Count());
+            // the calls to Contain only work because our entities have id-based equality (check the Equals impl)
             Assert.True(retrievedProduct.Sources.Contains(_source1));
             Assert.True(retrievedProduct.Sources.Contains(_source2));
         }

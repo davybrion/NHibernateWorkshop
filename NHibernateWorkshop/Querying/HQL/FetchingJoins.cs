@@ -3,6 +3,7 @@ using NHibernate.Transform;
 using Northwind.Builders;
 using Northwind.Entities;
 using NUnit.Framework;
+using System.Linq;
 using Order = Northwind.Entities.Order;
 
 namespace NHibernateWorkshop.Querying.HQL
@@ -56,10 +57,12 @@ namespace NHibernateWorkshop.Querying.HQL
             var employeesWithOrWithoutManagers =
                 Session.CreateQuery("from Employee e left join fetch e.Manager").List<Employee>();
 
-            Assert.IsTrue(employeesWithOrWithoutManagers.Contains(employeeWithoutManager));
-            Assert.IsTrue(employeesWithOrWithoutManagers.Contains(employeeWithManager));
-            Assert.IsNull(employeeWithoutManager.Manager);
-            Assert.IsTrue(NHibernateUtil.IsInitialized(employeeWithManager.Manager));
+            var retrievedEmployeeWithoutManager = employeesWithOrWithoutManagers.FirstOrDefault(e => e.Id == employeeWithoutManager.Id);
+            var retrievedEmployeeWithManager = employeesWithOrWithoutManagers.FirstOrDefault(e => e.Id == employeeWithManager.Id);
+            Assert.IsNotNull(retrievedEmployeeWithManager);
+            Assert.IsNotNull(retrievedEmployeeWithoutManager);
+            Assert.IsNull(retrievedEmployeeWithoutManager.Manager);
+            Assert.IsTrue(NHibernateUtil.IsInitialized(retrievedEmployeeWithManager.Manager));
         }
 
         [Test]
@@ -75,8 +78,10 @@ namespace NHibernateWorkshop.Querying.HQL
 
             var employeesWithManagers = Session.CreateQuery("from Employee e join fetch e.Manager").List<Employee>();
 
-            Assert.IsFalse(employeesWithManagers.Contains(employeeWithoutManager));
-            Assert.IsTrue(employeesWithManagers.Contains(employeeWithManager));
+            var retrievedEmployeeWithoutManager = employeesWithManagers.FirstOrDefault(e => e.Id == employeeWithoutManager.Id);
+            var retrievedEmployeeWithManager = employeesWithManagers.FirstOrDefault(e => e.Id == employeeWithManager.Id);
+            Assert.IsNotNull(retrievedEmployeeWithManager);
+            Assert.IsNull(retrievedEmployeeWithoutManager);
             employeesWithManagers.Each(e => Assert.IsTrue(NHibernateUtil.IsInitialized(e.Manager)));
         }
 

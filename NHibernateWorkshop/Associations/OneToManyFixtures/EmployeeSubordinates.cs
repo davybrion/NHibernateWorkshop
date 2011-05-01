@@ -40,6 +40,7 @@ namespace NHibernateWorkshop.AssociationFixtures.OneToManyFixtures
 
             var retrievedManager = Session.Get<Employee>(_manager.Id);
             Assert.AreEqual(2, retrievedManager.Subordinates.Count());
+            // the calls to Contain only work because our entities have id-based equality (check the Equals impl)
             Assert.True(retrievedManager.Subordinates.Contains(_subordinate1));
             Assert.True(retrievedManager.Subordinates.Contains(_subordinate2));
         }
@@ -53,6 +54,7 @@ namespace NHibernateWorkshop.AssociationFixtures.OneToManyFixtures
 
             var retrievedManager = Session.Get<Employee>(_manager.Id);
             var retrievedSubordinate1 = Session.Get<Employee>(_subordinate1.Id);
+            // the calls to Contain only work because our entities have id-based equality (check the Equals impl)
             Assert.False(retrievedManager.Subordinates.Contains(retrievedSubordinate1));
             Assert.True(retrievedManager.Subordinates.Contains(_subordinate2));
             Assert.IsNull(retrievedSubordinate1.Manager);

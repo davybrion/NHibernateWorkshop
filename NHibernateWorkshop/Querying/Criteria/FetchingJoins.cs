@@ -1,3 +1,4 @@
+using System.Linq;
 using NHibernate;
 using NHibernate.Criterion;
 using NHibernate.SqlCommand;
@@ -38,10 +39,12 @@ namespace NHibernateWorkshop.Querying.Criteria
                 .SetFetchMode("Manager", FetchMode.Join) // implicit outer join because Manager is an optional property
                 .List<Employee>();
 
-            Assert.IsTrue(employeesWithOrWithoutManagers.Contains(employeeWithoutManager));
-            Assert.IsTrue(employeesWithOrWithoutManagers.Contains(employeeWithManager));
-            Assert.IsNull(employeeWithoutManager.Manager);
-            Assert.IsTrue(NHibernateUtil.IsInitialized(employeeWithManager.Manager));
+            var retrievedEmployeeWithoutManager = employeesWithOrWithoutManagers.FirstOrDefault(e => e.Id == employeeWithoutManager.Id);
+            var retrievedEmployeeWithManager = employeesWithOrWithoutManagers.FirstOrDefault(e => e.Id == employeeWithManager.Id);
+            Assert.IsNotNull(retrievedEmployeeWithManager);
+            Assert.IsNotNull(retrievedEmployeeWithoutManager);
+            Assert.IsNull(retrievedEmployeeWithoutManager.Manager);
+            Assert.IsTrue(NHibernateUtil.IsInitialized(retrievedEmployeeWithManager.Manager));
         }
 
         [Test]
@@ -59,8 +62,10 @@ namespace NHibernateWorkshop.Querying.Criteria
                 .CreateCriteria("Manager", JoinType.InnerJoin)
                 .List<Employee>();
 
-            Assert.IsFalse(employeesWithManagers.Contains(employeeWithoutManager));
-            Assert.IsTrue(employeesWithManagers.Contains(employeeWithManager));
+            var retrievedEmployeeWithoutManager = employeesWithManagers.FirstOrDefault(e => e.Id == employeeWithoutManager.Id);
+            var retrievedEmployeeWithManager = employeesWithManagers.FirstOrDefault(e => e.Id == employeeWithManager.Id);
+            Assert.IsNotNull(retrievedEmployeeWithManager);
+            Assert.IsNull(retrievedEmployeeWithoutManager);
             employeesWithManagers.Each(e => Assert.IsTrue(NHibernateUtil.IsInitialized(e.Manager)));
         }
 
