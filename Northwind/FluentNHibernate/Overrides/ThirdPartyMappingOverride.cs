@@ -9,9 +9,8 @@ namespace Northwind.FluentNHibernate.Overrides
         public void Override(AutoMapping<ThirdParty> mapping)
         {
             mapping.DiscriminateSubClassesOnColumn("Type");
-            // TODO: these values seem to get ignored? it uses the full type-names in the discriminator column
-            mapping.SubClass<Customer>("Customer");
-            mapping.SubClass<Supplier>("Supplier");
+            mapping.SubClass<Customer>("Customer"); // the "Customer" value is ignored by FluentNHibernate, it uses the full typename by default
+            mapping.SubClass<Supplier>("Supplier"); // the "Supplier" value is also ignored
 
             mapping.Id(o => o.Id).GeneratedBy.HiLo("100");
 
@@ -22,8 +21,6 @@ namespace Northwind.FluentNHibernate.Overrides
             mapping.Map(t => t.ContactName).Length(100);
             mapping.Map(t => t.Phone).Length(15);
             mapping.Map(t => t.Fax).Length(15);
-
-            // TODO: find out wether the Address fields are generated as non-nullable
         }
     }
 }
