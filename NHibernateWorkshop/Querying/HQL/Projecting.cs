@@ -11,18 +11,16 @@ namespace NHibernateWorkshop.Querying.HQL
         [Test]
         public void project_into_dto()
         {
-#if HBMSQLITE
-            var orderHeaders = Session.CreateQuery(
-                @"select new OrderHeader(o.OrderedOn, c.Name, e.FirstName || ' ' || e.LastName)
-                    from Order o inner join o.Customer c inner join o.Employee e")
-                .List<OrderHeader>();
-#endif
-
 #if FLUENTSQLITE
             var orderHeaders = Session.CreateQuery(
                 @"select o.OrderedOn as OrderedOn, c.Name as CustomerName, e.FirstName || ' ' || e.LastName as EmployeeName
                     from Order o inner join o.Customer c inner join o.Employee e")
                 .SetResultTransformer(new AliasToBeanResultTransformer(typeof(OrderHeader)))
+                .List<OrderHeader>();
+#else
+            var orderHeaders = Session.CreateQuery(
+                @"select new OrderHeader(o.OrderedOn, c.Name, e.FirstName || ' ' || e.LastName)
+                    from Order o inner join o.Customer c inner join o.Employee e")
                 .List<OrderHeader>();
 #endif
             Assert.Greater(orderHeaders.Count, 0);
