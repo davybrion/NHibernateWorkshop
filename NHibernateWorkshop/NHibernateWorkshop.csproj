@@ -172,6 +172,7 @@
     <Compile Include="Querying\LINQ\GroupBy.cs" />
     <Compile Include="Querying\LINQ\Ordering.cs" />
     <Compile Include="Querying\LINQ\Paging.cs" />
+    <Compile Include="Querying\LINQ\Polymorphic.cs" />
     <Compile Include="Querying\LINQ\Projecting.cs" />
     <Compile Include="Querying\LINQ\SubQuery.cs" />
     <Compile Include="Querying\LINQ\UniqueResult.cs" />
