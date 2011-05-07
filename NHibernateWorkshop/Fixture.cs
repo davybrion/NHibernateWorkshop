@@ -1,3 +1,4 @@
+using System;
 using log4net;
 using NHibernate;
 using NHibernateWorkshop.SessionFactoryBuilders;
@@ -14,12 +15,7 @@ namespace NHibernateWorkshop
             log4net.Config.XmlConfigurator.Configure();
             Logger = LogManager.GetLogger(typeof(Fixture));
 
-#if FLUENTSQLITE
-            SessionFactory = new SQLiteFluentSessionFactoryBuilder().BuildSessionFactory();
-#else
-            SessionFactory = new SQLiteHbmSessionFactoryBuilder().BuildSessionFactory();
-#endif
-
+            SetSessionFactory();
             //HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.Initialize();
 
             using (var session = CreateSession())
@@ -28,6 +24,19 @@ namespace NHibernateWorkshop
                 TestData.Create(session);
                 transaction.Commit();
             }
+        }
+
+        private static void SetSessionFactory()
+        {
+#if FLUENTSQLITE
+            SessionFactory = new SQLiteFluentSessionFactoryBuilder().BuildSessionFactory();
+#elif FLUENTSQLSERVER
+            SessionFactory = new SqlServerFluentSessionFactoryBuilder().BuildSessionFactory();
+#elif HBMSQLSERVER
+            SessionFactory = new SqlServerHbmSessionFactoryBuilder().BuildSessionFactory();
+#else
+            SessionFactory = new SQLiteHbmSessionFactoryBuilder().BuildSessionFactory();
+#endif
         }
 
         protected static ISession CreateSession()
