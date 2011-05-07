@@ -167,6 +167,7 @@
     <Compile Include="Querying\HQL\UniqueResult.cs" />
     <Compile Include="Querying\LINQ\AggregateFunctions.cs" />
     <Compile Include="Querying\LINQ\FetchingJoins.cs" />
+    <Compile Include="Querying\LINQ\GroupBy.cs" />
     <Compile Include="Querying\LINQ\Ordering.cs" />
     <Compile Include="Querying\LINQ\Paging.cs" />
     <Compile Include="Querying\LINQ\Projecting.cs" />

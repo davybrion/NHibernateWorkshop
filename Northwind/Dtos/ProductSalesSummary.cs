@@ -6,7 +6,6 @@ namespace Northwind.Dtos
         public string ProductName { get; private set; }
         public long ItemsSold { get; private set; }
 
-        // TODO: try to remove this constructor and see what breaks
         protected ProductSalesSummary() {}
 
         public ProductSalesSummary(int productId, string productName, long itemsSold)
