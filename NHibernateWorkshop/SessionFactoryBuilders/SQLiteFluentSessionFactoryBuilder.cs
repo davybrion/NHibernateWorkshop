@@ -20,6 +20,7 @@ namespace NHibernateWorkshop.SessionFactoryBuilders
                 .Database(SQLiteConfiguration
                     .Standard.UsingFile(dbFile)
                     .ShowSql()
+                    .FormatSql()
                     .AdoNetBatchSize(100))
                 .Mappings(m => m.AutoMappings.Add(CreateAutomappings).ExportTo("c:\\temp\\"))
                 .ExposeConfiguration(cfg => new SchemaExport(cfg).Create(true, true))
