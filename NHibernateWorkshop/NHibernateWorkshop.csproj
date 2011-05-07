@@ -162,6 +162,7 @@
     <Compile Include="Querying\HQL\GroupBy.cs" />
     <Compile Include="Querying\HQL\Ordering.cs" />
     <Compile Include="Querying\HQL\Paging.cs" />
+    <Compile Include="Querying\HQL\Polymorphic.cs" />
     <Compile Include="Querying\HQL\Projecting.cs" />
     <Compile Include="Querying\HQL\SubQuery.cs" />
     <Compile Include="Querying\HQL\UniqueResult.cs" />
