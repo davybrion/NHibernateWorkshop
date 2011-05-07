@@ -151,6 +151,7 @@
     <Compile Include="Querying\Criteria\AggregateFunctions.cs" />
     <Compile Include="Querying\Criteria\DetachedCriteriaVsCriteria.cs" />
     <Compile Include="Querying\Criteria\FetchingJoins.cs" />
+    <Compile Include="Querying\Criteria\GroupBy.cs" />
     <Compile Include="Querying\Criteria\Ordering.cs" />
     <Compile Include="Querying\Criteria\Paging.cs" />
     <Compile Include="Querying\Criteria\Projecting.cs" />
