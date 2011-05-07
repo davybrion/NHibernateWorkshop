@@ -158,6 +158,7 @@
     <Compile Include="Querying\Criteria\UniqueResult.cs" />
     <Compile Include="Querying\HQL\AggregateFunctions.cs" />
     <Compile Include="Querying\HQL\FetchingJoins.cs" />
+    <Compile Include="Querying\HQL\GroupBy.cs" />
     <Compile Include="Querying\HQL\Ordering.cs" />
     <Compile Include="Querying\HQL\Paging.cs" />
     <Compile Include="Querying\HQL\Projecting.cs" />

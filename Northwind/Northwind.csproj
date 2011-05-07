@@ -114,6 +114,7 @@
     <Compile Include="Builders\ThirdPartyBuilder.cs" />
     <Compile Include="Components\Address.cs" />
     <Compile Include="Dtos\OrderHeader.cs" />
+    <Compile Include="Dtos\ProductSalesSummary.cs" />
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\Employee.cs" />
     <Compile Include="Entities\Entity.cs" />

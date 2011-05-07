@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
   <import class="Northwind.Dtos.OrderHeader, Northwind"/>
+  <import class="Northwind.Dtos.ProductSalesSummary, Northwind"/>
 </hibernate-mapping>
