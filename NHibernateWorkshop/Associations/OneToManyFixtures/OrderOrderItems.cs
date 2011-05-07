@@ -45,7 +45,6 @@ namespace NHibernateWorkshop.AssociationFixtures.OneToManyFixtures
         public void removing_item_from_order_removes_item_from_database()
         {
             _order.RemoveItem(_item1);
-            Session.Update(_order);
             FlushAndClear();
 
             Assert.IsNull(Session.Get<OrderItem>(_item1.Id));

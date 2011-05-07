@@ -49,7 +49,6 @@ namespace NHibernateWorkshop.AssociationFixtures.OneToManyFixtures
         public void removing_subordinate_from_manager_does_not_delete_it_from_database()
         {
             _manager.RemoveSubordinate(_subordinate1);
-            Session.Update(_manager);
             FlushAndClear();
 
             var retrievedManager = Session.Get<Employee>(_manager.Id);
