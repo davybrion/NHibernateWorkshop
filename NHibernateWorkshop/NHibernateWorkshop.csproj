@@ -175,6 +175,7 @@
     <Compile Include="Querying\QueryOver\AggregateFunctions.cs" />
     <Compile Include="Querying\QueryOver\DetachedQueryOverVsQueryOver.cs" />
     <Compile Include="Querying\QueryOver\FetchingJoins.cs" />
+    <Compile Include="Querying\QueryOver\GroupBy.cs" />
     <Compile Include="Querying\QueryOver\Ordering.cs" />
     <Compile Include="Querying\QueryOver\Paging.cs" />
     <Compile Include="Querying\QueryOver\Projecting.cs" />
