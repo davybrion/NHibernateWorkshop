@@ -22,9 +22,8 @@ namespace NHibernateWorkshop.SessionFactoryBuilders
                     .ShowSql()
                     .FormatSql()
                     .AdoNetBatchSize(100))
-                .Mappings(m => m.AutoMappings.Add(CreateAutomappings).ExportTo("c:\\temp\\"))
+                .Mappings(m => m.AutoMappings.Add(CreateAutomappings))
                 .ExposeConfiguration(cfg => new SchemaExport(cfg).Create(true, true))
-                .Diagnostics(d => d.Enable())
                 .BuildSessionFactory();
         }
 
