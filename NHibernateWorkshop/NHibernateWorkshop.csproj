@@ -185,6 +185,7 @@
     <Compile Include="Querying\QueryOver\Paging.cs" />
     <Compile Include="Querying\QueryOver\Polymorphic.cs" />
     <Compile Include="Querying\QueryOver\Projecting.cs" />
+    <Compile Include="Querying\QueryOver\Restricting.cs" />
     <Compile Include="Querying\QueryOver\SubQuery.cs" />
     <Compile Include="Querying\QueryOver\UniqueResult.cs" />
     <Compile Include="ReflectionHelper.cs" />

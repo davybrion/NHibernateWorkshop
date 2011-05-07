@@ -4,7 +4,7 @@ using Northwind.Entities;
 using NUnit.Framework;
 using System.Linq;
 
-namespace NHibernateWorkshop.Querying.Criteria
+namespace NHibernateWorkshop.Querying.QueryOver
 {
     [TestFixture]
     public class Restricting : AutoRollbackFixture
@@ -35,9 +35,9 @@ namespace NHibernateWorkshop.Querying.Criteria
             _product3.UnitsOnOrder = 7;
             Flush();
 
-            var products = Session.CreateCriteria<Product>()
-                .Add(Restrictions.EqProperty("UnitsInStock", "UnitsOnOrder"))
-                .List<Product>();
+            var products = Session.QueryOver<Product>()
+                .Where(p => p.UnitsInStock == p.UnitsOnOrder)
+                .List();
 
             Assert.IsTrue(products.Contains(_product1));
             Assert.IsFalse(products.Contains(_product2));
@@ -56,9 +56,9 @@ namespace NHibernateWorkshop.Querying.Criteria
             _product3.UnitsOnOrder = 7;
             Flush();
 
-            var products = Session.CreateCriteria<Product>()
-                .Add(Restrictions.GtProperty("UnitsOnOrder", "UnitsInStock"))
-                .List<Product>();
+            var products = Session.QueryOver<Product>()
+                .Where(p => p.UnitsOnOrder > p.UnitsInStock)
+                .List();
 
             Assert.IsFalse(products.Contains(_product1));
             Assert.IsTrue(products.Contains(_product2));
@@ -74,9 +74,9 @@ namespace NHibernateWorkshop.Querying.Criteria
             _product3.UnitsInStock = 9;
             Flush();
 
-            var products = Session.CreateCriteria<Product>()
-                .Add(Restrictions.Between("UnitsInStock", 5, 10))
-                .List<Product>();
+            var products = Session.QueryOver<Product>()
+                .WhereRestrictionOn(p => p.UnitsInStock).IsBetween(5).And(10)
+                .List();
 
             Assert.IsTrue(products.Contains(_product1));
             Assert.IsFalse(products.Contains(_product2));
@@ -93,9 +93,9 @@ namespace NHibernateWorkshop.Querying.Criteria
             Flush();
 
             var stockLevels = new[] {7, 9, 11, 13};
-            var products = Session.CreateCriteria<Product>()
-                .Add(Restrictions.In("UnitsInStock", stockLevels))
-                .List<Product>();
+            var products = Session.QueryOver<Product>()
+                .WhereRestrictionOn(p => p.UnitsInStock).IsIn(stockLevels)
+                .List();
 
             Assert.IsFalse(products.Contains(_product1));
             Assert.IsTrue(products.Contains(_product2));
@@ -119,9 +119,9 @@ namespace NHibernateWorkshop.Querying.Criteria
         [Test]
         public void where_string_property_begins_with_value()
         {
-            var products = Session.CreateCriteria<Product>()
-                .Add(Restrictions.Like("Name", "pr", MatchMode.Start))
-                .List<Product>();
+            var products = Session.QueryOver<Product>()
+                .WhereRestrictionOn(p => p.Name).IsLike("pr", MatchMode.Start)
+                .List();
 
             Assert.IsTrue(products.Contains(_product1));
             Assert.IsTrue(products.Contains(_product2));
@@ -132,9 +132,9 @@ namespace NHibernateWorkshop.Querying.Criteria
         [Test]
         public void where_string_property_ends_with_value()
         {
-            var products = Session.CreateCriteria<Product>()
-                .Add(Restrictions.Like("Name", "3", MatchMode.End))
-                .List<Product>();
+            var products = Session.QueryOver<Product>()
+                .WhereRestrictionOn(p => p.Name).IsLike("3", MatchMode.End)
+                .List();
 
             Assert.IsFalse(products.Contains(_product1));
             Assert.IsFalse(products.Contains(_product2));
@@ -149,9 +149,9 @@ namespace NHibernateWorkshop.Querying.Criteria
             Session.Save(product4);
             Flush();
 
-            var products = Session.CreateCriteria<Product>()
-                .Add(Restrictions.Like("Name", "product 2", MatchMode.Exact))
-                .List<Product>();
+            var products = Session.QueryOver<Product>()
+                .WhereRestrictionOn(p => p.Name).IsLike("product 2", MatchMode.Exact)
+                .List();
 
             Assert.IsFalse(products.Contains(_product1));
             Assert.IsTrue(products.Contains(_product2));
@@ -163,9 +163,9 @@ namespace NHibernateWorkshop.Querying.Criteria
         [Test]
         public void where_property_is_null()
         {
-            var products = Session.CreateCriteria<Product>()
-                .Add(Restrictions.IsNull("ReorderLevel"))
-                .List<Product>();
+            var products = Session.QueryOver<Product>()
+                .Where(p => p.ReorderLevel == null)
+                .List();
 
             Assert.IsTrue(products.Contains(_product1));
             Assert.IsTrue(products.Contains(_product2));
@@ -176,9 +176,9 @@ namespace NHibernateWorkshop.Querying.Criteria
         [Test]
         public void where_property_is_not_null()
         {
-            var products = Session.CreateCriteria<Product>()
-                .Add(Restrictions.IsNotNull("ReorderLevel"))
-                .List<Product>();
+            var products = Session.QueryOver<Product>()
+                .Where(p => p.ReorderLevel != null)
+                .List();
 
             Assert.IsFalse(products.Contains(_product1));
             Assert.IsFalse(products.Contains(_product2));
@@ -189,9 +189,9 @@ namespace NHibernateWorkshop.Querying.Criteria
         [Test]
         public void where_collection_is_empty()
         {
-            var products = Session.CreateCriteria<Product>()
-                .Add(Restrictions.IsEmpty("Sources"))
-                .List<Product>();
+            var products = Session.QueryOver<Product>()
+                .WhereRestrictionOn(p => p.Sources).IsEmpty
+                .List();
 
             Assert.IsTrue(products.Contains(_product1));
             Assert.IsTrue(products.Contains(_product2));
@@ -202,9 +202,9 @@ namespace NHibernateWorkshop.Querying.Criteria
         [Test]
         public void where_collection_is_not_empty()
         {
-            var products = Session.CreateCriteria<Product>()
-                .Add(Restrictions.IsNotEmpty("Sources"))
-                .List<Product>();
+            var products = Session.QueryOver<Product>()
+                .WhereRestrictionOn(p => p.Sources).IsNotEmpty
+                .List();
 
             Assert.IsFalse(products.Contains(_product1));
             Assert.IsFalse(products.Contains(_product2));
@@ -219,11 +219,10 @@ namespace NHibernateWorkshop.Querying.Criteria
             _product1.UnitsInStock = 5;
             Flush();
 
-            var products = Session.CreateCriteria<Product>()
-                .Add(Restrictions.And(
-                    Restrictions.IsNotEmpty("Sources"),
-                    Restrictions.IsNotNull("UnitsInStock")))
-                .List<Product>();
+            var products = Session.QueryOver<Product>()
+                .WhereRestrictionOn(p => p.Sources).IsNotEmpty
+                .And(p => p.UnitsInStock != null)
+                .List();
 
             Assert.IsTrue(products.Contains(_product1));
             Assert.IsFalse(products.Contains(_product2));
@@ -238,11 +237,10 @@ namespace NHibernateWorkshop.Querying.Criteria
         [Test]
         public void two_restrictions_with_or()
         {
-            var products = Session.CreateCriteria<Product>()
-                .Add(Restrictions.Or(
-                    Restrictions.IsNotEmpty("Sources"),
-                    Restrictions.IsNull("UnitsInStock")))
-                .List<Product>();
+            var products = Session.QueryOver<Product>()
+                .Where(Restrictions.On<Product>(p => p.Sources).IsEmpty || 
+                       Restrictions.On<Product>(p => p.UnitsInStock).IsNull) // not allowed to use a lambda here :s
+                .List();
 
             Assert.IsTrue(products.Contains(_product1));
             Assert.IsTrue(products.Contains(_product2));
@@ -258,12 +256,11 @@ namespace NHibernateWorkshop.Querying.Criteria
             _product3.ReorderLevel = null;
             Flush();
 
-            var products = Session.CreateCriteria<Product>()
-                .Add(Restrictions.Conjunction()
-                    .Add(Restrictions.IsNotEmpty("Sources"))
-                    .Add(Restrictions.IsNotNull("UnitsInStock"))
-                    .Add(Restrictions.IsNull("ReorderLevel")))
-                .List<Product>();
+            var products = Session.QueryOver<Product>()
+                .WhereRestrictionOn(p => p.Sources).IsNotEmpty
+                .And(p => p.UnitsInStock != null)
+                .And(p => p.ReorderLevel == null)
+                .List();
 
             Assert.IsTrue(products.Contains(_product1));
             Assert.IsFalse(products.Contains(_product2));
@@ -279,12 +276,11 @@ namespace NHibernateWorkshop.Querying.Criteria
         [Test]
         public void more_than_two_restrictions_with_or()
         {
-            var products = Session.CreateCriteria<Product>()
-                .Add(Restrictions.Disjunction()
-                    .Add(Restrictions.IsNotEmpty("Sources"))
-                    .Add(Restrictions.IsNull("UnitsInStock"))
-                    .Add(Restrictions.IsNotNull("ReorderLevel")))
-                .List<Product>();
+            var products = Session.QueryOver<Product>()
+                .Where(Restrictions.On<Product>(p => p.Sources).IsNotEmpty ||
+                       Restrictions.On<Product>(p => p.UnitsInStock).IsNull ||
+                       Restrictions.On<Product>(p => p.ReorderLevel).IsNotNull)
+                .List();
 
             Assert.IsTrue(products.Contains(_product1));
             Assert.IsTrue(products.Contains(_product2));
