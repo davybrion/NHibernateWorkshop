@@ -154,6 +154,7 @@
     <Compile Include="Querying\Criteria\GroupBy.cs" />
     <Compile Include="Querying\Criteria\Ordering.cs" />
     <Compile Include="Querying\Criteria\Paging.cs" />
+    <Compile Include="Querying\Criteria\Polymorphic.cs" />
     <Compile Include="Querying\Criteria\Projecting.cs" />
     <Compile Include="Querying\Criteria\SubQuery.cs" />
     <Compile Include="Querying\Criteria\UniqueResult.cs" />
