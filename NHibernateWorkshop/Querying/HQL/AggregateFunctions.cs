@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Northwind.Entities;
@@ -35,8 +36,13 @@ namespace NHibernateWorkshop.Querying.HQL
         [Test]
         public void average()
         {
-            var averageItemsInStock = Session.CreateQuery("select avg(p.UnitsInStock) from Product p").UniqueResult();
+            var averageItemsInStock = Session.CreateQuery("select avg(p.UnitsInStock) from Product p").UniqueResult<double>();
+#if HBMSQLSERVER || FLUENTSQLSERVER
+            // SQL server rounds the avg value down if you don't cast the column to double precision... and HQL doesn't include the cast :s
+            Assert.Less(Math.Abs(_products.Average(p => p.UnitsInStock).Value - averageItemsInStock), 1);
+#else
             Assert.AreEqual(_products.Average(p => p.UnitsInStock), averageItemsInStock);
+#endif
         }
 
         [Test]
