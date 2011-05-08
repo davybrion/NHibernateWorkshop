@@ -30,7 +30,6 @@ namespace NHibernateWorkshop.OptimisticConcurrency
             }
         }
 
-
         [Test]
         public void version_increments_with_each_persist()
         {
@@ -81,7 +80,7 @@ namespace NHibernateWorkshop.OptimisticConcurrency
         }
 
         [Test]
-        public void refresh_of_instance_with_old_version_number_makes_update_work()
+        public void refresh_of_instance_with_old_version_number_enables_new_updates()
         {
             using (var session1 = CreateSession())
             using (var session2 = CreateSession())
