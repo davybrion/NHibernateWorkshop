@@ -30,6 +30,7 @@ namespace NHibernateWorkshop.Crud
             entity.HireDate = entity.HireDate.AddDays(2);
             entity.LastName = "O'Donel";
             entity.Manager = manager;
+            entity.Salary = 2500;
         }
 
         protected override void AssertAreEqual(Employee expectedEntity, Employee actualEntity)
@@ -42,6 +43,7 @@ namespace NHibernateWorkshop.Crud
             Assert.AreEqual(expectedEntity.Manager, actualEntity.Manager);
             Assert.AreEqual(expectedEntity.Phone, actualEntity.Phone);
             Assert.AreEqual(expectedEntity.Title, actualEntity.Title);
+            Assert.AreEqual(expectedEntity.Salary, actualEntity.Salary);
         }
 
         protected override void AssertValidId(Employee entity)

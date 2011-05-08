@@ -15,6 +15,7 @@ namespace Northwind.Entities
         public virtual Address Address { get; set; }
         public virtual string Phone { get; set; }
         public virtual Employee Manager { get; set; }
+        public virtual decimal Salary { get; set; }
 
         private IList<Employee> _subordinates = new List<Employee>();
 

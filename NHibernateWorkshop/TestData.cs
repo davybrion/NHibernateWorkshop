@@ -26,6 +26,7 @@ namespace NHibernateWorkshop
                 .With<Employee>(options => options.For(employee => employee.FirstName, new StringGenerator(1, 50)))
                 .With<Employee>(options => options.For(employee => employee.LastName, new StringGenerator(1, 75)))
                 .With<Employee>(options => options.For(employee => employee.Title, new StringGenerator(1, 50)))
+                .With<Employee>(options => options.For(employee => employee.Salary, new DecimalGenerator(1700, 3500)))
                 .With<Employee>(options => options.For(employee => employee.Phone, new StringGenerator(1, 15)));
         }
 

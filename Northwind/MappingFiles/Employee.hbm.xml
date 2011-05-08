@@ -13,6 +13,7 @@
     <property name="BirthDate" not-null="true" />
     <property name="HireDate" not-null="true" />
     <property name="Phone" length="15" />
+    <property name="Salary" />
 
     <component name="Address">
       <property name="Street" length="100" not-null="true" />
