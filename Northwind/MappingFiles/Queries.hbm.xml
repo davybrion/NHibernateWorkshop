@@ -2,6 +2,9 @@
 
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Northwind.Entities" assembly="Northwind">
 
+  <!-- All of the examples in this file are highly simplistic, but the goal is just to show how you can use these features...
+       in real projects, you'd probably only use these features for complex stuff -->
+  
   <sql-query name="GET_EMPLOYEES_WITH_HIGHER_SALARY_THAN">
     <!-- if your stored-procedure returns the expected columns as they are known to NHibernate, it would be sufficient to use the line below -->    
     <!--<return class="Employee" />-->
@@ -31,6 +34,15 @@
 
   <sql-query name="GET_AVERAGE_SALARY">
     exec GET_AVERAGE_SALARY
+  </sql-query>
+
+  <sql-query name="GetAllProducts">
+    <return class="Product" />
+    select * from product
+  </sql-query>
+
+  <sql-query name="GetProductCount">
+    select count(*) from product
   </sql-query>
   
 </hibernate-mapping>
