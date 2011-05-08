@@ -176,6 +176,7 @@
     <Compile Include="Querying\LINQ\Paging.cs" />
     <Compile Include="Querying\LINQ\Polymorphic.cs" />
     <Compile Include="Querying\LINQ\Projecting.cs" />
+    <Compile Include="Querying\LINQ\Restricting.cs" />
     <Compile Include="Querying\LINQ\SubQuery.cs" />
     <Compile Include="Querying\LINQ\UniqueResult.cs" />
     <Compile Include="Querying\QueryOver\AggregateFunctions.cs" />
