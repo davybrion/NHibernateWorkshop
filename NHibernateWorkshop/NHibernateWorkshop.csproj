@@ -146,6 +146,7 @@
     <Compile Include="OptimisticConcurrency\OptimisticLockAll.cs" />
     <Compile Include="OptimisticConcurrency\OptimisticLockDirty.cs" />
     <Compile Include="OptimisticConcurrency\Version.cs" />
+    <Compile Include="Performance\ExecutableHql.cs" />
     <Compile Include="Performance\ExtraLazyCollection.cs" />
     <Compile Include="Performance\Futures.cs" />
     <Compile Include="Performance\PagingThroughCollection.cs" />

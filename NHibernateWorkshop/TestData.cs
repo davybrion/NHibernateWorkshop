@@ -67,10 +67,10 @@ namespace NHibernateWorkshop
                     ProductCategory.Condiments,
                     ProductCategory.DairyProducts,
                     ProductCategory.Produce))
-                .With<Product>(g => g.Method<double>(1, 5, (product, d) => product.AddSource(suppliers.PickOne(), d)))
+                .With<Product>(g => g.Method<double>(0, 5, (product, d) => product.AddSource(suppliers.PickOne(), d)))
                 .With<Product>(options => options.For(product => product.Name, new StringGenerator(1, 50)))
                 .ForEach<Product>(product => session.Save(product))
-                .Many<Product>(30)
+                .Many<Product>(50)
                 .ToArray();
 
             WithAddress(new DomainGenerator())
