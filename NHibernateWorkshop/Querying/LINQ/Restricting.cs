@@ -247,7 +247,7 @@ namespace NHibernateWorkshop.Querying.LINQ
             Assert.IsTrue(products.Contains(_product1));
             Assert.IsTrue(products.Contains(_product2));
             Assert.IsTrue(products.Contains(_product3));
-            products.Each(p => Assert.IsTrue(p.Sources.Count() > 0 || p.UnitsInStock == null));
+            products.Each(p => Assert.IsTrue(p.Sources.Count() == 0 || p.UnitsInStock == null));
         }
 
         [Test]
@@ -285,7 +285,7 @@ namespace NHibernateWorkshop.Querying.LINQ
             Assert.IsTrue(products.Contains(_product1));
             Assert.IsTrue(products.Contains(_product2));
             Assert.IsTrue(products.Contains(_product3));
-            products.Each(p => Assert.IsTrue(p.Sources.Count() > 0 || p.UnitsInStock == null || p.ReorderLevel.HasValue));
+            products.Each(p => Assert.IsTrue(p.Sources.Count() == 0 || p.UnitsInStock == null || p.ReorderLevel.HasValue));
         }
     }
 }
