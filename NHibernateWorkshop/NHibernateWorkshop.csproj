@@ -148,6 +148,7 @@
     <Compile Include="OptimisticConcurrency\Version.cs" />
     <Compile Include="Performance\ExtraLazyCollection.cs" />
     <Compile Include="Performance\Futures.cs" />
+    <Compile Include="Performance\Proxies.cs" />
     <Compile Include="Querying\Criteria\AggregateFunctions.cs" />
     <Compile Include="Querying\Criteria\DetachedCriteriaVsCriteria.cs" />
     <Compile Include="Querying\Criteria\FetchingJoins.cs" />
