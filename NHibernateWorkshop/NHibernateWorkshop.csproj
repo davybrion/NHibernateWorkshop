@@ -190,6 +190,7 @@
     <Compile Include="Querying\QueryOver\Restricting.cs" />
     <Compile Include="Querying\QueryOver\SubQuery.cs" />
     <Compile Include="Querying\QueryOver\UniqueResult.cs" />
+    <Compile Include="Querying\StoredProcedures\CallingStoredProcedures.cs" />
     <Compile Include="ReflectionHelper.cs" />
     <Compile Include="SessionFactoryBuilders\SqlServerFluentSessionFactoryBuilder.cs" />
     <Compile Include="SessionFactoryBuilders\SqlServerHbmSessionFactoryBuilder.cs" />
@@ -216,6 +217,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Querying\StoredProcedures\GET_AVERAGE_SALARY.sql" />
+    <Content Include="Querying\StoredProcedures\GET_EMPLOYEES_WITH_HIGHER_SALARY_THAN.sql" />
+    <Content Include="Querying\StoredProcedures\README.txt" />
     <Content Include="sqlserver.hibernate.cfg.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Northwind.Entities" assembly="Northwind">
+
+  <sql-query name="GET_EMPLOYEES_WITH_HIGHER_SALARY_THAN">
+    <!-- if your stored-procedure returns the expected columns as they are known to NHibernate, it would be sufficient to use the line below -->    
+    <!--<return class="Employee" />-->
+    
+    <!-- but for demonstration purposes, i'm using the technique where you explicitely map the returned columns to properties...
+         this approach can also be used with stored procedures that return more columns than your entity type normally contains or if they
+         return column names that differ from the column names that NHibernate would normally expect -->
+    <return class="Employee">
+      <return-property column="Id" name="Id" />
+      <return-property column="FirstName" name="FirstName" />
+      <return-property column="LastName" name="LastName" />
+      <return-property column="Title" name="Title" />
+      <return-property column="BirthDate" name="BirthDate" />
+      <return-property column="HireDate" name="HireDate" />
+      <return-property column="Phone" name="Phone" />
+      <return-property column="Salary" name="Salary" />
+      <return-property column="ManagerId" name="Manager" />  <!-- notice how you map the foreign key to the relevant many-to-one -->
+      <return-property name="Address">
+        <return-column name="Street" />
+        <return-column name="City" />
+        <return-column name="PostalCode" />
+        <return-column name="Country" />
+      </return-property>
+    </return>
+    exec GET_EMPLOYEES_WITH_HIGHER_SALARY_THAN :employeeId
+  </sql-query>
+
+  <sql-query name="GET_AVERAGE_SALARY">
+    exec GET_AVERAGE_SALARY
+  </sql-query>
+  
+</hibernate-mapping>
