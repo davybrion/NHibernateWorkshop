@@ -150,6 +150,7 @@
     <Compile Include="Performance\Futures.cs" />
     <Compile Include="Performance\PagingThroughCollection.cs" />
     <Compile Include="Performance\Proxies.cs" />
+    <Compile Include="PessimisticLocking\UsingLockMode.cs" />
     <Compile Include="Querying\Criteria\AggregateFunctions.cs" />
     <Compile Include="Querying\Criteria\DetachedCriteriaVsCriteria.cs" />
     <Compile Include="Querying\Criteria\FetchingJoins.cs" />
