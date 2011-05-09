@@ -14,6 +14,7 @@ namespace Northwind.Builders
         private string _title;
         private string _phone;
         private Employee _manager;
+        private decimal? _salary;
 
         public EmployeeBuilder WithFirstName(string firstName)
         {
@@ -63,6 +64,12 @@ namespace Northwind.Builders
             return this;
         }
 
+        public EmployeeBuilder WithSalary(decimal salary)
+        {
+            _salary = salary;
+            return this;
+        }
+
         public Employee Build()
         {
             var employee = new Employee(_firstName, _lastName, _address, _birthDate, _hireDate);
@@ -70,6 +77,7 @@ namespace Northwind.Builders
             if (_title != null) employee.Title = _title;
             if (_phone != null) employee.Phone = _phone;
             if (_manager != null) employee.Manager = _manager;
+            if (_salary != null) employee.Salary = _salary.Value;
 
             return employee;
         }
