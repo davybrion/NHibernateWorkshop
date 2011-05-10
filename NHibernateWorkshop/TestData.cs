@@ -5,7 +5,6 @@ using Northwind.Components;
 using Northwind.Entities;
 using Northwind.Enums;
 using QuickGenerate;
-using QuickGenerate.Primitives;
 
 namespace NHibernateWorkshop
 {
@@ -33,7 +32,7 @@ namespace NHibernateWorkshop
                 .With<Employee>(options => options.Length(employee => employee.FirstName, 1, 50))
                 .With<Employee>(options => options.Length(employee => employee.LastName, 1, 75))
                 .With<Employee>(options => options.Length(employee => employee.Title, 1, 50))
-                .With<Employee>(options => options.Range(employee => employee.Salary, new DecimalGenerator(1700, 3500)))
+                .With<Employee>(options => options.Range(employee => employee.Salary, 1700, 3500))
                 .With<Employee>(options => options.Length(employee => employee.Phone, 1, 15))
                 .ForEach<Employee>(employee => session.Save(employee));
         }
@@ -42,7 +41,7 @@ namespace NHibernateWorkshop
         {
             var customers = Using.TheseConventions()
                 .With<Customer>(options => options.Length(customer => customer.Name, 5, 100))
-                .With<Customer>(options => options.For(customer => customer.DiscountPercentage, new DoubleGenerator(0, 25)))
+                .With<Customer>(options => options.Range(customer => customer.DiscountPercentage, 0, 25))
                 .ForEach<Customer>(customer => session.Save(customer))
                 .Many<Customer>(20, 40)
                 .ToArray();
