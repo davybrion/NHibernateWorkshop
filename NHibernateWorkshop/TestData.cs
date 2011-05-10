@@ -33,7 +33,7 @@ namespace NHibernateWorkshop
                 .With<Employee>(options => options.Length(employee => employee.FirstName, 1, 50))
                 .With<Employee>(options => options.Length(employee => employee.LastName, 1, 75))
                 .With<Employee>(options => options.Length(employee => employee.Title, 1, 50))
-                .With<Employee>(options => options.For(employee => employee.Salary, new DecimalGenerator(1700, 3500)))
+                .With<Employee>(options => options.Range(employee => employee.Salary, new DecimalGenerator(1700, 3500)))
                 .With<Employee>(options => options.Length(employee => employee.Phone, 1, 15))
                 .ForEach<Employee>(employee => session.Save(employee));
         }
