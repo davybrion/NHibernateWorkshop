@@ -52,6 +52,7 @@ namespace NHibernateWorkshop
 
             var suppliers = WithAddress(new DomainGenerator())
                 .With<Supplier>(options => options.Ignore(supplier => supplier.Id))
+                .With<Supplier>(options => options.For(Supplier => Supplier.Name, new StringGenerator(5, 25)))
                 .With<Supplier>(options => options.For(supplier => supplier.Website, new StringGenerator(1, 100)))
                 .Many<Supplier>(20)
                 .ToArray();
