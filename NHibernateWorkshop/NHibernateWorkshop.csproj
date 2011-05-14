@@ -147,6 +147,7 @@
     <Compile Include="Associations\OneToManyFixtures\ProductProductSources.cs" />
     <Compile Include="AutoRollbackFixture.cs" />
     <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="IdentifierStrategies\Hilo.cs" />
     <Compile Include="IdentifierStrategies\Identity.cs" />
     <Compile Include="OptimisticConcurrency\OptimisticLockAll.cs" />
     <Compile Include="OptimisticConcurrency\OptimisticLockDirty.cs" />
@@ -234,7 +235,7 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="mysql.hibernate.cfg.xml">
+    <Content Include="sqlite.hibernate.cfg.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
