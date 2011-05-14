@@ -49,7 +49,7 @@ namespace NHibernateWorkshop.Querying.HQL
             });
         }
 
-        private long GetSalesCountForProductWithId(int productId)
+        private long GetSalesCountForProductWithId(Guid productId)
         {
             return _orderItems.Where(o => o.Product.Id == productId).Sum(o => o.Quantity);
         }

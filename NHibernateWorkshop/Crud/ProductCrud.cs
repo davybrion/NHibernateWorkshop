@@ -1,3 +1,4 @@
+using System;
 using Northwind.Builders;
 using Northwind.Entities;
 using Northwind.Enums;
@@ -6,7 +7,7 @@ using NUnit.Framework;
 namespace NHibernateWorkshop.Crud
 {
     [TestFixture]
-    public class ProductCrud : CrudFixture<Product, int> 
+    public class ProductCrud : CrudFixture<Product, Guid> 
     {
         protected override Product BuildEntity()
         {
@@ -37,7 +38,7 @@ namespace NHibernateWorkshop.Crud
 
         protected override void AssertValidId(Product entity)
         {
-            Assert.That(entity.Id > 0);
+            // irrelevant for assigned guid id
         }
     }
 }

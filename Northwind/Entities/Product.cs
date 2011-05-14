@@ -1,10 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Northwind.Enums;
 
 namespace Northwind.Entities
 {
-    public class Product : Entity<int>
+    public class Product : Entity<Guid>
     {
         public virtual string Name { get; set; }
         public virtual ProductCategory Category { get; set; }
@@ -21,6 +22,7 @@ namespace Northwind.Entities
 
         public Product(string name, ProductCategory category)
         {
+            Id = Guid.NewGuid();
             Name = name;
             Category = category;
         }

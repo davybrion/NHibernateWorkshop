@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using NHibernate.Criterion;
@@ -57,7 +58,7 @@ namespace NHibernateWorkshop.Querying.QueryOver
             });
         }
 
-        private long GetSalesCountForProductWithId(int productId)
+        private long GetSalesCountForProductWithId(Guid productId)
         {
             return _orderItems.Where(o => o.Product.Id == productId).Sum(o => o.Quantity);
         }

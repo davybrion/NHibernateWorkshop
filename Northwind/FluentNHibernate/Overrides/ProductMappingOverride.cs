@@ -9,6 +9,8 @@ namespace Northwind.FluentNHibernate.Overrides
     {
         public void Override(AutoMapping<Product> mapping)
         {
+            mapping.Id(p => p.Id).GeneratedBy.Assigned();
+
             mapping.Version(p => p.Version);
 
             mapping.Map(p => p.Name)

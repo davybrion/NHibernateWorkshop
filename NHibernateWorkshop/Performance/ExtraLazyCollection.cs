@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Northwind.Entities;
@@ -8,14 +9,14 @@ namespace NHibernateWorkshop.Performance
     [TestFixture]
     public class ExtraLazyCollection : AutoRollbackFixture
     {
-        private int _productId;
+        private Guid _productId;
         private IEnumerable<ProductSource> _sources;
 
         protected override void AfterSetUp()
         {
             _productId = Session.CreateQuery("select p.Id from Product p where exists elements(p.Sources)")
                 .SetMaxResults(1)
-                .UniqueResult<int>();
+                .UniqueResult<Guid>();
 
             _sources = Session.CreateQuery("from ProductSource ps where ps.Product.Id = :id")
                 .SetParameter("id", _productId)

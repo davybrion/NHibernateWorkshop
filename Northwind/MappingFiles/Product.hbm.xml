@@ -4,7 +4,7 @@
 
   <class name="Product">
     <id name="Id" column="Id" >
-      <generator class="identity" />
+      <generator class="assigned" />
     </id>
 
     <version name="Version" />
