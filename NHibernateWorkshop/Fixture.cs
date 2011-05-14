@@ -17,7 +17,7 @@ namespace NHibernateWorkshop
             Logger = LogManager.GetLogger(typeof(Fixture));
 
             SetSessionFactory();
-            //HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.Initialize();
+            //HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.InitializeOfflineProfiling("c:\\temp\\nhprof.nhprof");
 
             using (var session = CreateSession())
             using (var transaction = session.BeginTransaction())

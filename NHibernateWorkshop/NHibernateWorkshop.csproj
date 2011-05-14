@@ -148,6 +148,7 @@
     <Compile Include="AutoRollbackFixture.cs" />
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="IdentifierStrategies\AssignedGuid.cs" />
+    <Compile Include="IdentifierStrategies\GuidComb.cs" />
     <Compile Include="IdentifierStrategies\Hilo.cs" />
     <Compile Include="IdentifierStrategies\Identity.cs" />
     <Compile Include="OptimisticConcurrency\OptimisticLockAll.cs" />
