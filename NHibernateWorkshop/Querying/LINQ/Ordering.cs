@@ -26,7 +26,6 @@ namespace NHibernateWorkshop.Querying.LINQ
         public void order_by_joined_property()
         {
             var orders = Session.Query<Order>()
-                .Fetch(o => o.Customer)
                 .OrderByDescending(o => o.Customer.DiscountPercentage)
                 .Take(50)
                 .ToList();

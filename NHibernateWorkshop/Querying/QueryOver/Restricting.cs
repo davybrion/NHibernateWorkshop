@@ -106,8 +106,8 @@ namespace NHibernateWorkshop.Querying.QueryOver
         [Test]
         public void where_string_property_contains_value()
         {
-            var products = Session.CreateCriteria<Product>()
-                .Add(Restrictions.Like("Name", "roduc", MatchMode.Anywhere))
+            var products = Session.QueryOver<Product>()
+                .WhereRestrictionOn(p => p.Name).IsLike("roduc", MatchMode.Anywhere)
                 .List<Product>();
 
             Assert.IsTrue(products.Contains(_product1));
