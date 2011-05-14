@@ -21,6 +21,7 @@ namespace NHibernateWorkshop.SessionFactoryBuilders
                     .FormatSql()
                     .AdoNetBatchSize(100))
                 .Mappings(m => m.AutoMappings.Add(CreateAutomappings))
+                .ExposeConfiguration(cfg => cfg.SetProperty("generate_statistics", "true"))
                 .ExposeConfiguration(cfg => new SchemaExport(cfg).Create(true, true))
                 .BuildSessionFactory();
         }

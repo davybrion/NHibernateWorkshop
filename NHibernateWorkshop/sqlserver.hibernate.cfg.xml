@@ -9,6 +9,7 @@
     <property name="adonet.batch_size">100</property>
     <property name="show_sql">true</property>
     <property name="format_sql">true</property>
+    <property name="generate_statistics">true</property>
     <mapping assembly="Northwind"/>
   </session-factory>
 </hibernate-configuration>
