@@ -18,7 +18,7 @@ namespace NHibernateWorkshop.SessionFactoryBuilders
                                                     { Environment.ConnectionString, string.Format("Data Source={0};Version=3;New=True;", dbFile) }
                                                 });
 
-            configuration.Configure("mysql.hibernate.cfg.xml");
+            configuration.Configure("sqlite.hibernate.cfg.xml");
             var schemaExport = new SchemaExport(configuration);
             schemaExport.Create(true, true);
             return configuration.BuildSessionFactory();
