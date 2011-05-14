@@ -1,6 +1,6 @@
-using System;
 using log4net;
 using NHibernate;
+using NHibernate.Stat;
 using NHibernateWorkshop.SessionFactoryBuilders;
 
 namespace NHibernateWorkshop
@@ -9,6 +9,7 @@ namespace NHibernateWorkshop
     {
         protected static ILog Logger { get; private set; }
         protected static ISessionFactory SessionFactory { get; private set; }
+        protected IStatistics Statistics { get { return SessionFactory.Statistics;  } }
 
         static Fixture()
         {
