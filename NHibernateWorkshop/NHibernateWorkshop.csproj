@@ -192,6 +192,7 @@
     <Compile Include="Querying\LINQ\SubQuery.cs" />
     <Compile Include="Querying\LINQ\UniqueResult.cs" />
     <Compile Include="Querying\NativeSQL\NativeSql.cs" />
+    <Compile Include="Querying\PolymorphicGet.cs" />
     <Compile Include="Querying\QueryOver\AggregateFunctions.cs" />
     <Compile Include="Querying\QueryOver\DetachedQueryOverVsQueryOver.cs" />
     <Compile Include="Querying\QueryOver\FetchingJoins.cs" />

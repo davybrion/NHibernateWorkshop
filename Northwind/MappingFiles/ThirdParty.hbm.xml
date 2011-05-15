@@ -25,7 +25,7 @@
     </component>
 
     <subclass name="Customer" discriminator-value="Customer">
-      <property name="DiscountPercentage" /> <!-- note that we can't make this field required for Customers with the Table Per Hierarchy strategy -->
+      <property name="DiscountPercentage" /> 
     </subclass>
 
     <subclass name="Supplier" discriminator-value="Supplier">
@@ -33,5 +33,103 @@
     </subclass> 
     
   </class>
+  
+  <!-- Table Per Subclass example -->
+  <!--<class name="ThirdParty">
+    <id name="Id" column="Id" >
+      <generator class="hilo">
+        <param name="max_lo">100</param>
+      </generator>
+    </id>
 
+    <property name="Name" length="100" not-null="true" />
+    <property name="ContactName" length="100" />
+    <property name="Phone" length="15" />
+    <property name="Fax" length="15" />
+
+    <component name="Address">
+      <property name="Street" length="100" not-null="true" />
+      <property name="City" length="100" not-null="true" />
+      <property name="PostalCode" not-null="true" />
+      <property name="Country" length="100" not-null="true" />
+    </component>
+
+    <joined-subclass name="Customer">
+      <key column="Id" />
+      <property name="DiscountPercentage" not-null="true" />  
+    </joined-subclass>
+
+    <joined-subclass name="Supplier">
+      <key column="Id" />
+      <property name="Website" length="100"/>
+    </joined-subclass>
+  </class>-->
+  
+
+  <!-- Table Per Subclass, with discriminator example -->
+  <!--<class name="ThirdParty">
+    <id name="Id" column="Id" >
+      <generator class="hilo">
+        <param name="max_lo">100</param>
+      </generator>
+    </id>
+
+    <discriminator column="Type" not-null="true" type="string" />
+
+    <property name="Name" length="100" not-null="true" />
+    <property name="ContactName" length="100" />
+    <property name="Phone" length="15" />
+    <property name="Fax" length="15" />
+
+    <component name="Address">
+      <property name="Street" length="100" not-null="true" />
+      <property name="City" length="100" not-null="true" />
+      <property name="PostalCode" not-null="true" />
+      <property name="Country" length="100" not-null="true" />
+    </component>
+
+    <subclass name="Customer" discriminator-value="Customer">
+      <join table="Customer">
+        <key column="Id" />
+        <property name="DiscountPercentage" not-null="true" /> 
+      </join>
+    </subclass>
+
+    <subclass name="Supplier" discriminator-value="Supplier">
+      <join table="Supplier">
+        <key column="Id" />
+        <property name="Website" length="100"/>
+      </join>
+    </subclass> 
+  </class>-->
+
+  <!-- Table Per Concrete Class example -->
+  <!--<class name="ThirdParty" abstract="true">
+    <id name="Id" column="Id" >
+      <generator class="hilo">
+        <param name="max_lo">100</param>
+      </generator>
+    </id>
+
+    <property name="Name" length="100" not-null="true" />
+    <property name="ContactName" length="100" />
+    <property name="Phone" length="15" />
+    <property name="Fax" length="15" />
+
+    <component name="Address">
+      <property name="Street" length="100" not-null="true" />
+      <property name="City" length="100" not-null="true" />
+      <property name="PostalCode" not-null="true" />
+      <property name="Country" length="100" not-null="true" />
+    </component>
+
+    <union-subclass name="Customer">
+      <property name="DiscountPercentage" not-null="true" />
+    </union-subclass>
+
+    <union-subclass name="Supplier">
+      <property name="Website" length="100"/>
+    </union-subclass>
+  </class>-->  
+  
 </hibernate-mapping>
