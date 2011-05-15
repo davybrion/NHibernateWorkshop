@@ -57,6 +57,7 @@ namespace NHibernateWorkshop
             var suppliers = Using.TheseConventions()
                 .With<Supplier>(options => options.Length(supplier => supplier.Website, 1, 100))
                 .With<Supplier>(options => options.Length(supplier => supplier.Name, 5, 25))
+                .ForEach<Supplier>(supplier => session.Save(supplier))
                 .Many<Supplier>(20)
                 .ToArray();
 
