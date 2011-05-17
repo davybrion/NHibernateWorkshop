@@ -28,6 +28,12 @@
       <key column="ManagerId" />
       <one-to-many class="Employee"/>
     </bag>
+
+    <map name="DynamicProperties" table="DynamicEmployeeProperties">
+      <key column="EmployeeId"/>
+      <index column="PropertyName" type="string"/>
+      <element column="PropertyValue" type="string"/>
+    </map>
     
   </class>
 

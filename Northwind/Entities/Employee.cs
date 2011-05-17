@@ -16,6 +16,7 @@ namespace Northwind.Entities
         public virtual string Phone { get; set; }
         public virtual Employee Manager { get; set; }
         public virtual decimal Salary { get; set; }
+        public virtual IDictionary<string, string> DynamicProperties { get; set; }
 
         private IList<Employee> _subordinates = new List<Employee>();
 
@@ -28,6 +29,7 @@ namespace Northwind.Entities
             Address = address;
             BirthDate = birthDate;
             HireDate = hireDate;
+            DynamicProperties = new Dictionary<string, string>();
         }
 
         public virtual IEnumerable<Employee> Subordinates

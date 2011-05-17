@@ -38,6 +38,12 @@ namespace Northwind.FluentNHibernate.Overrides
                 .KeyColumn("ManagerId")
                 .Cascade.SaveUpdate()
                 .Access.CamelCaseField(Prefix.Underscore);
+
+            mapping.HasMany(e => e.DynamicProperties)
+                .AsMap<string>("PropertyName")
+                .Table("DynamicEmployeeProperties")
+                .KeyColumn("EmployeeId")
+                .Element("PropertyValue");
         }
     }
 }
