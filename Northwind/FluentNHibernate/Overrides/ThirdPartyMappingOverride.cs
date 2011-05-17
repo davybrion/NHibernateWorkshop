@@ -9,9 +9,9 @@ namespace Northwind.FluentNHibernate.Overrides
         public void Override(AutoMapping<ThirdParty> mapping)
         {
             // Table Per Hierarchy example
-            //mapping.DiscriminateSubClassesOnColumn("Type");
-            //mapping.SubClass<Customer>("Customer"); // the "Customer" value is ignored by FluentNHibernate, it uses the full typename by default
-            //mapping.SubClass<Supplier>("Supplier"); // the "Supplier" value is also ignored
+            mapping.DiscriminateSubClassesOnColumn("Type");
+            mapping.SubClass<Customer>("Customer"); // the "Customer" value is ignored by FluentNHibernate, it uses the full typename by default
+            mapping.SubClass<Supplier>("Supplier"); // the "Supplier" value is also ignored
 
             // Table Per SubClass example
             //mapping.JoinedSubClass<Customer>("Id", customerMap => customerMap.Map(c => c.DiscountPercentage).Not.Nullable());
