@@ -147,6 +147,7 @@
     <Compile Include="Associations\OneToManyFixtures\OrderOrderItems.cs" />
     <Compile Include="Associations\OneToManyFixtures\ProductProductSources.cs" />
     <Compile Include="AutoRollbackFixture.cs" />
+    <Compile Include="Crud\UserGroupCrud.cs" />
     <Compile Include="Crud\UserCrud.cs" />
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="IdentifierStrategies\AssignedGuid.cs" />
