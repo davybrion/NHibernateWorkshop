@@ -6,6 +6,7 @@ namespace Northwind.Builders
     {
         private string _userName = "dbr";
         private byte[] _passwordHash = new byte[] { 1, 2, 3 };
+        private Employee _employee = new EmployeeBuilder().Build();
 
         public UserBuilder WithUserName(string userName)
         {
@@ -19,9 +20,15 @@ namespace Northwind.Builders
             return this;
         }
 
+        public UserBuilder WithEmployee(Employee employee)
+        {
+            _employee = employee;
+            return this;
+        }
+
         public User Build()
         {
-            return new User(_userName, _passwordHash);
+            return new User(_userName, _passwordHash, _employee);
         }
     }
 }

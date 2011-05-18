@@ -17,6 +17,7 @@ namespace Northwind.Entities
         public virtual Employee Manager { get; set; }
         public virtual decimal Salary { get; set; }
         public virtual IDictionary<string, string> DynamicProperties { get; set; }
+        public virtual User User { get; set; }
 
         private IList<Employee> _subordinates = new List<Employee>();
 

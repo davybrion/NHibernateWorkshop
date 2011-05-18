@@ -8,12 +8,18 @@ namespace Northwind.FluentNHibernate.Overrides
     {
         public void Override(AutoMapping<User> mapping)
         {
+            mapping.Id(u => u.Id)
+                .GeneratedBy.Foreign("Employee");
+
             mapping.Map(u => u.UserName)
                 .Not.Nullable()
                 .Length(20);
 
             mapping.Map(u => u.PasswordHash)
                 .Not.Nullable();
+
+            mapping.HasOne(u => u.Employee)
+                .Constrained();
         }
     }
 }

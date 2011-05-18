@@ -34,7 +34,8 @@
       <index column="PropertyName" type="string"/>
       <element column="PropertyValue" type="string"/>
     </map>
-    
+
+    <one-to-one name="User" cascade="all" />
   </class>
 
 </hibernate-mapping>

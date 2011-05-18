@@ -44,6 +44,9 @@ namespace Northwind.FluentNHibernate.Overrides
                 .Table("DynamicEmployeeProperties")
                 .KeyColumn("EmployeeId")
                 .Element("PropertyValue");
+
+            mapping.HasOne(e => e.User)
+                .Cascade.All();
         }
     }
 }
