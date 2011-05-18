@@ -112,6 +112,7 @@
     <Compile Include="Builders\ProductSourceBuilder.cs" />
     <Compile Include="Builders\SupplierBuilder.cs" />
     <Compile Include="Builders\ThirdPartyBuilder.cs" />
+    <Compile Include="Builders\UserBuilder.cs" />
     <Compile Include="Components\Address.cs" />
     <Compile Include="Dtos\OrderHeader.cs" />
     <Compile Include="Dtos\ProductSalesSummary.cs" />
@@ -121,12 +122,14 @@
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\OrderItem.cs" />
     <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\User.cs" />
     <Compile Include="Enums\ProductCategory.cs" />
     <Compile Include="Entities\ProductSource.cs" />
     <Compile Include="Entities\Supplier.cs" />
     <Compile Include="Entities\ThirdParty.cs" />
     <Compile Include="FluentNHibernate\AutoMappingConfiguration.cs" />
     <Compile Include="FluentNHibernate\Conventions\CustomForeignKeyConvention.cs" />
+    <Compile Include="FluentNHibernate\Overrides\UserMappingOverride.cs" />
     <Compile Include="FluentNHibernate\Overrides\EmployeeMappingOverride.cs" />
     <Compile Include="FluentNHibernate\Overrides\OrderItemMappingOverride.cs" />
     <Compile Include="FluentNHibernate\Overrides\OrderMappingOverride.cs" />
@@ -164,6 +167,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MappingFiles\Queries.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MappingFiles\User.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
