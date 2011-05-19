@@ -253,7 +253,5 @@ namespace NHibernateWorkshop.Performance
                 transaction.Commit();
             }
         }
-
-        // TODO: show difference in cached query for non-cached entities and cached query for cached entities
     }
 }
