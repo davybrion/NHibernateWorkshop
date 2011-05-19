@@ -25,7 +25,11 @@ namespace NHibernateWorkshop.Associations.ManyToManyFixtures
             _userGroup.AddUser(_user1);
             _userGroup.AddUser(_user2);
             Session.Save(_userGroup);
-            FlushAndClear();
+            Flush();
+
+            Assert.IsTrue(_user1.UserGroups.Contains(_userGroup));
+            Assert.IsTrue(_user2.UserGroups.Contains(_userGroup));
+            Clear();
 
             var retrievedGroup = Session.Get<UserGroup>(_userGroup.Id);
             Assert.IsTrue(retrievedGroup.Users.Contains(_user1));
@@ -40,7 +44,11 @@ namespace NHibernateWorkshop.Associations.ManyToManyFixtures
             Session.Save(_userGroup);
             Flush();
             _userGroup.RemoveUser(_user2);
-            FlushAndClear();
+            Flush();
+
+            Assert.IsTrue(_user1.UserGroups.Contains(_userGroup));
+            Assert.IsFalse(_user2.UserGroups.Contains(_userGroup));
+            Clear();
 
             var retrievedGroup = Session.Get<UserGroup>(_userGroup.Id);
             Assert.IsTrue(retrievedGroup.Users.Contains(_user1));
@@ -56,6 +64,8 @@ namespace NHibernateWorkshop.Associations.ManyToManyFixtures
             Flush();
 
             Session.Delete(_userGroup);
+            _user1.RemoveUserGroup(_userGroup);
+            _user2.RemoveUserGroup(_userGroup);
             FlushAndClear();
 
             Assert.IsNull(Session.Get<UserGroup>(_userGroup.Id));

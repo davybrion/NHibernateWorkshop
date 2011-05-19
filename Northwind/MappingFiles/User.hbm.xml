@@ -13,7 +13,12 @@
     <property name="PasswordHash" not-null="true" />
 
     <one-to-one name="Employee" constrained="true" />
-    
+
+    <set name="UserGroups" table="UserUserGroup" cascade="save-update" access="field.camelcase-underscore">
+      <key column="UserId" />
+      <many-to-many class="UserGroup" column="UserGroupId" />
+    </set>
+
   </class>
 
 </hibernate-mapping>

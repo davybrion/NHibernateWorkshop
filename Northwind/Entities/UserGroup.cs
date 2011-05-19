@@ -25,11 +25,19 @@ namespace Northwind.Entities
         public virtual void AddUser(User user)
         {
             _users.Add(user);
+            if (!user.UserGroups.Contains(this))
+            {
+                user.AddUserGroup(this);
+            }
         }
 
         public virtual void RemoveUser(User user)
         {
             _users.Remove(user);
+            if (user.UserGroups.Contains(this))
+            {
+                user.RemoveUserGroup(this);
+            }
         }
     }
 }

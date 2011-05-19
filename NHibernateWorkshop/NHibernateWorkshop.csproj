@@ -142,6 +142,7 @@
   <ItemGroup>
     <Compile Include="AdvancedMappings\EmployeeDynamicProperties.cs" />
     <Compile Include="Associations\ManyToManyFixtures\UserGroupUsers.cs" />
+    <Compile Include="Associations\ManyToManyFixtures\UserUserGroups.cs" />
     <Compile Include="Associations\ManyToOneFixtures\EmployeeManager.cs" />
     <Compile Include="Associations\ManyToOneFixtures\OrderCustomerEmployee.cs" />
     <Compile Include="Associations\OneToManyFixtures\EmployeeSubordinates.cs" />

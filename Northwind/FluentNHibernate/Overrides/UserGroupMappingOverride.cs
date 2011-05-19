@@ -18,7 +18,8 @@ namespace Northwind.FluentNHibernate.Overrides
                 .ParentKeyColumn("UserGroupId")
                 .ChildKeyColumn("UserId")
                 .Access.CamelCaseField(Prefix.Underscore)
-                .Cascade.SaveUpdate();
+                .Cascade.SaveUpdate()
+                .Inverse();
         }
     }
 }

@@ -1,5 +1,6 @@
 using FluentNHibernate.Automapping;
 using FluentNHibernate.Automapping.Alterations;
+using FluentNHibernate.Mapping;
 using Northwind.Entities;
 
 namespace Northwind.FluentNHibernate.Overrides
@@ -20,6 +21,13 @@ namespace Northwind.FluentNHibernate.Overrides
 
             mapping.HasOne(u => u.Employee)
                 .Constrained();
+
+            mapping.HasManyToMany(u => u.UserGroups)
+                .Table("UserUserGroup")
+                .ParentKeyColumn("UserId")
+                .ChildKeyColumn("UserGroupId")
+                .Access.CamelCaseField(Prefix.Underscore)
+                .Cascade.SaveUpdate();
         }
     }
 }
