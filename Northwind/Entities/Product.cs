@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Iesi.Collections.Generic;
+using Northwind.Components;
 using Northwind.Enums;
 
 namespace Northwind.Entities
@@ -15,6 +17,7 @@ namespace Northwind.Entities
         public virtual int? ReorderLevel { get; set; }
         public virtual bool Discontinued { get; set; }
         public virtual int Version { get; set; }
+        public virtual ISet<ImageInfo> Images { get; set; }
 
         private IList<ProductSource> _sources = new List<ProductSource>();
 
@@ -25,6 +28,7 @@ namespace Northwind.Entities
             Id = Guid.NewGuid();
             Name = name;
             Category = category;
+            Images = new HashedSet<ImageInfo>();
         }
 
         public virtual IEnumerable<ProductSource> Sources

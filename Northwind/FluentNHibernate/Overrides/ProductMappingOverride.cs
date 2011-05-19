@@ -26,6 +26,15 @@ namespace Northwind.FluentNHibernate.Overrides
                 .Inverse()
                 .ExtraLazyLoad()
                 .Access.CamelCaseField(Prefix.Underscore);
+
+            mapping.HasMany(p => p.Images)
+                .AsSet()
+                .Table("ProductImages")
+                .Component(c =>
+                               {
+                                   c.Map(i => i.Path).Not.Nullable();
+                                   c.Map(i => i.ImageType).Not.Nullable();
+                               });
         }
     }
 }

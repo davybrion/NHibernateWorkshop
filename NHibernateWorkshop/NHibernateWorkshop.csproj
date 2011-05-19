@@ -141,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdvancedMappings\EmployeeDynamicProperties.cs" />
+    <Compile Include="AdvancedMappings\ProductImages.cs" />
     <Compile Include="Associations\ManyToManyFixtures\UserGroupUsers.cs" />
     <Compile Include="Associations\ManyToManyFixtures\UserUserGroups.cs" />
     <Compile Include="Associations\ManyToOneFixtures\EmployeeManager.cs" />

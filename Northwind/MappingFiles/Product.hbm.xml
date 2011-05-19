@@ -21,6 +21,14 @@
       <key column="ProductId" />
       <one-to-many class="ProductSource" />
     </bag>
+
+    <set name="Images" table="ProductImages">
+      <key column="ProductId" />
+      <composite-element class="Northwind.Components.ImageInfo, Northwind">
+        <property name="Path" not-null="true" />
+        <property name="ImageType" type="NHibernate.Type.EnumStringType`1[[Northwind.Enums.ImageType, Northwind]], NHibernate" not-null="true" />
+      </composite-element>
+    </set>
     
   </class>
 

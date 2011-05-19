@@ -115,6 +115,7 @@
     <Compile Include="Builders\ThirdPartyBuilder.cs" />
     <Compile Include="Builders\UserBuilder.cs" />
     <Compile Include="Components\Address.cs" />
+    <Compile Include="Components\ImageInfo.cs" />
     <Compile Include="Dtos\OrderHeader.cs" />
     <Compile Include="Dtos\ProductSalesSummary.cs" />
     <Compile Include="Entities\UserGroup.cs" />
@@ -125,6 +126,7 @@
     <Compile Include="Entities\OrderItem.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="Enums\ImageType.cs" />
     <Compile Include="Enums\ProductCategory.cs" />
     <Compile Include="Entities\ProductSource.cs" />
     <Compile Include="Entities\Supplier.cs" />
