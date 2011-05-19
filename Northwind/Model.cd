@@ -9,12 +9,29 @@
   </Class>
   <Class Name="Northwind.Entities.Employee" HideInheritanceLine="true">
     <Position X="2.5" Y="0.5" Width="1.5" />
+    <AssociationLine Name="Subordinates" Type="Northwind.Entities.Employee" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.25" Y="0.5" />
+        <Point X="3.25" Y="0.26" />
+        <Point X="2.875" Y="0.26" />
+        <Point X="2.875" Y="0.5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.286" Y="0.275" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="User" Type="Northwind.Entities.User">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.178" Y="0.173" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>QAAAAEAAAAAAAEBAIAAAAAQAACAAhAACAAAAIAAAAAg=</HashCode>
+      <HashCode>QAABAGAAAAAAAEBAIAAAAAQAACAAhIACAAAAIAAAAAg=</HashCode>
       <FileName>Entities\Employee.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Manager" />
+      <Property Name="User" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="Subordinates" />
@@ -76,7 +93,7 @@
     <Position X="11.25" Y="0.75" Width="1.5" />
     <AssociationLine Name="Sources" Type="Northwind.Entities.ProductSource">
       <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
-        <Position X="0.485" Y="0.227" Height="0.182" Width="0.738" />
+        <Position X="0.191" Y="0.758" Height="0.182" Width="0.738" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
@@ -91,7 +108,7 @@
     <Position X="13.5" Y="5" Width="1.5" />
     <AssociationLine Name="Product" Type="Northwind.Entities.Product">
       <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.227" Y="0.058" />
+        <Position X="-0.858" Y="0.974" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
@@ -127,6 +144,23 @@
       <FileName>Components\Address.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Northwind.Entities.User">
+    <Position X="16.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAACAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Entities\User.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Employee" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Northwind.Entities.UserGroup">
+    <Position X="19.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\UserGroup.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
