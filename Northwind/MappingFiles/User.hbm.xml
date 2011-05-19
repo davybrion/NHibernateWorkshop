@@ -8,13 +8,17 @@
     <id name="Id" column="Id" >
       <generator class="foreign">
         <param name="property">Employee</param>
-      </generator>  
+      </generator>
+      <!--<generator class="hilo">
+        <param name="max_lo">100</param>
+      </generator>-->
     </id>
 
     <property name="UserName" length="20" not-null="true" />
     <property name="PasswordHash" not-null="true" />
 
     <one-to-one name="Employee" constrained="true" />
+    <!--<many-to-one name="Employee" column="EmployeeId" unique="true" cascade="save-update" />-->
 
     <set name="UserGroups" table="UserUserGroup" cascade="save-update" access="field.camelcase-underscore">
       <cache usage="read-write" />

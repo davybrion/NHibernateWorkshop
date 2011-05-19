@@ -47,6 +47,10 @@ namespace Northwind.FluentNHibernate.Overrides
 
             mapping.HasOne(e => e.User)
                 .Cascade.All();
+
+            //mapping.HasOne(e => e.User)
+            //    .Cascade.All()
+            //    .PropertyRef(u => u.Employee);
         }
     }
 }

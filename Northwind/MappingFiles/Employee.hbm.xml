@@ -36,6 +36,7 @@
     </map>
 
     <one-to-one name="User" cascade="all" />
+    <!--<one-to-one name="User" property-ref="Employee" cascade="all" />-->
   </class>
 
 </hibernate-mapping>

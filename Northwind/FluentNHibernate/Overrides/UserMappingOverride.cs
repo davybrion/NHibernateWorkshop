@@ -14,6 +14,9 @@ namespace Northwind.FluentNHibernate.Overrides
             mapping.Id(u => u.Id)
                 .GeneratedBy.Foreign("Employee");
 
+            //mapping.Id(u => u.Id)
+            //    .GeneratedBy.HiLo("100");
+
             mapping.Map(u => u.UserName)
                 .Not.Nullable()
                 .Length(20);
@@ -23,6 +26,10 @@ namespace Northwind.FluentNHibernate.Overrides
 
             mapping.HasOne(u => u.Employee)
                 .Constrained();
+
+            //mapping.References(u => u.Employee)
+            //    .Unique()
+            //    .Cascade.SaveUpdate();
 
             mapping.HasManyToMany(u => u.UserGroups)
                 .Table("UserUserGroup")
