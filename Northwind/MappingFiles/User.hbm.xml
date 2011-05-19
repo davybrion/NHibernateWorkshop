@@ -3,6 +3,8 @@
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Northwind.Entities" assembly="Northwind">
 
   <class name="User" table="`User`">
+    <cache usage="read-write" />
+    
     <id name="Id" column="Id" >
       <generator class="foreign">
         <param name="property">Employee</param>
@@ -15,6 +17,7 @@
     <one-to-one name="Employee" constrained="true" />
 
     <set name="UserGroups" table="UserUserGroup" cascade="save-update" access="field.camelcase-underscore">
+      <cache usage="read-write" />
       <key column="UserId" />
       <many-to-many class="UserGroup" column="UserGroupId" />
     </set>

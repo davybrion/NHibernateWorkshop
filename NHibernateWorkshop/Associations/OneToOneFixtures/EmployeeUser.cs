@@ -36,7 +36,7 @@ namespace NHibernateWorkshop.Associations.OneToOneFixtures
         }
 
         [Test]
-        public void deleting_customer_also_deletes_the_user()
+        public void deleting_employee_also_deletes_the_user()
         {
             Session.Save(_employee);
             Flush();

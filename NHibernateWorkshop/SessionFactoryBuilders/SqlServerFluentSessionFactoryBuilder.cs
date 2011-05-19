@@ -20,6 +20,7 @@ namespace NHibernateWorkshop.SessionFactoryBuilders
                     .ShowSql()
                     .FormatSql()
                     .AdoNetBatchSize(100))
+                .Cache(cache => cache.UseQueryCache().UseSecondLevelCache().ProviderClass("NHibernate.Cache.HashtableCacheProvider, NHibernate"))
                 .Mappings(m => m.AutoMappings.Add(CreateAutomappings))
                 .ExposeConfiguration(cfg => cfg.SetProperty("generate_statistics", "true"))
                 .ExposeConfiguration(cfg => new SchemaExport(cfg).Create(true, true))

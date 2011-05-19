@@ -3,8 +3,12 @@
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Northwind.Entities" assembly="Northwind">
 
   <class name="UserGroup">
+    <cache usage="read-write" />
+    
     <id name="Id" column="Id" >
-      <generator class="identity" />
+      <generator class="hilo">
+        <param name="max_lo">100</param>
+      </generator>
     </id>
 
     <property name="Name" length="20" not-null="true" />

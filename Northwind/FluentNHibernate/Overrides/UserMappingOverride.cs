@@ -9,6 +9,8 @@ namespace Northwind.FluentNHibernate.Overrides
     {
         public void Override(AutoMapping<User> mapping)
         {
+            mapping.Cache.ReadWrite();
+
             mapping.Id(u => u.Id)
                 .GeneratedBy.Foreign("Employee");
 
@@ -27,7 +29,8 @@ namespace Northwind.FluentNHibernate.Overrides
                 .ParentKeyColumn("UserId")
                 .ChildKeyColumn("UserGroupId")
                 .Access.CamelCaseField(Prefix.Underscore)
-                .Cascade.SaveUpdate();
+                .Cascade.SaveUpdate()
+                .Cache.ReadWrite();
         }
     }
 }
