@@ -146,6 +146,7 @@
     <Compile Include="Associations\OneToManyFixtures\EmployeeSubordinates.cs" />
     <Compile Include="Associations\OneToManyFixtures\OrderOrderItems.cs" />
     <Compile Include="Associations\OneToManyFixtures\ProductProductSources.cs" />
+    <Compile Include="Associations\OneToOneFixtures\EmployeeUser.cs" />
     <Compile Include="AutoRollbackFixture.cs" />
     <Compile Include="Crud\UserGroupCrud.cs" />
     <Compile Include="Crud\UserCrud.cs" />
