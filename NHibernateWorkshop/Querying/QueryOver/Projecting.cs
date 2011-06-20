@@ -1,6 +1,8 @@
 using System;
 using System.Linq;
+using NHibernate;
 using NHibernate.Criterion;
+using NHibernate.Transform;
 using Northwind.Dtos;
 using Northwind.Entities;
 using NUnit.Framework;
@@ -21,13 +23,17 @@ namespace NHibernateWorkshop.Querying.QueryOver
                 .JoinAlias(o => o.Customer, () => customer)
                 .JoinAlias(o => o.Employee, () => employee)
                 .Select(Projections.ProjectionList()
-                    .Add(Projections.Property<Order>(o => o.OrderedOn))
-                    .Add(Projections.Property(() => customer.Name))
-                    .Add(Projections.Property(() => employee.FirstName))
-                    .Add(Projections.Property(() => employee.LastName)))
-                .List<Object[]>()
-                // the following select is the .NET Select extension method on IEnumerable, not part of the QueryOver api
-                .Select(values => new OrderHeader((DateTime)values[0], (string)values[1], (string)values[2] + " " + (string)values[3]));
+                    .Add(Projections.Property<Order>(o => o.OrderedOn).As("OrderedOn"))
+                    .Add(Projections.Property(() => customer.Name).As("CustomerName"))
+                    .Add(Projections.SqlFunction("concat", NHibernateUtil.String,
+                            new[]
+                                {
+                                    Projections.Property(() => employee.FirstName),
+                                    Projections.Constant(" "),
+                                    Projections.Property(() => employee.LastName)
+                                }), "EmployeeName"))
+                .TransformUsing(new AliasToBeanResultTransformer(typeof(OrderHeader)))
+                .List<OrderHeader>();
 
             Assert.Greater(orderHeaders.Count(), 0);
 
