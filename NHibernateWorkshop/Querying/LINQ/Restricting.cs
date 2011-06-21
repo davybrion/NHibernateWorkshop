@@ -95,9 +95,9 @@ namespace NHibernateWorkshop.Querying.LINQ
             _product3.UnitsInStock = 9;
             Flush();
 
-            var stockLevels = new List<int>() {7, 9, 11, 13}; 
+            var stockLevels = new[] {7, 9, 11, 13}; 
             var products = Session.Query<Product>()
-                .Where(p => stockLevels.Contains(p.UnitsInStock.Value)) // this only works with concrete List objects
+                .Where(p => stockLevels.Contains(p.UnitsInStock.Value))
                 .ToList();
 
             Assert.IsFalse(products.Contains(_product1));

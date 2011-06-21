@@ -21,6 +21,8 @@ namespace NHibernateWorkshop.Performance
                 .SetResultTransformer(new DistinctRootEntityResultTransformer())
                 .List<Order>();
 
+            Clear();
+
             // the result of this query won't actually be used... the output is to demonstrate how awful it is
             // compared to the approach below
 
