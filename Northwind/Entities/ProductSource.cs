@@ -4,8 +4,8 @@ namespace Northwind.Entities
 {
     public class ProductSource : Entity<Guid>
     {
-        public virtual Product Product { get; private set; }
-        public virtual Supplier Supplier { get; private set; }
+        public virtual Product Product { get; protected set; }
+        public virtual Supplier Supplier { get; protected set; }
         public virtual double Cost { get; set; }
 
         protected ProductSource() {}

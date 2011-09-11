@@ -21,8 +21,6 @@ namespace Northwind.FluentNHibernate.Overrides
 
             // Table per Concrete class example (union-subclass) doesn't seem to work with Fluent NHibernate and automapping yet either?
 
-            mapping.UseUnionSubclassForInheritanceMapping();
-
             mapping.Id(o => o.Id).GeneratedBy.HiLo("100");
 
             mapping.Map(t => t.Name)

@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-configuration xmlns="urn:nhibernate-configuration-2.2">
   <session-factory>
-    <property name="proxyfactory.factory_class">NHibernate.ByteCode.Castle.ProxyFactoryFactory, NHibernate.ByteCode.Castle</property>
     <property name="dialect">NHibernate.Dialect.SQLiteDialect, NHibernate</property>
     <property name="connection.driver_class">NHibernate.Driver.SQLite20Driver, NHibernate</property>
     <property name="adonet.batch_size">100</property>
