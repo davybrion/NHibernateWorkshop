@@ -28,7 +28,7 @@ namespace Northwind.FluentNHibernate.Overrides
             mapping.HasMany(o => o.Items)
                 .AsSet()
                 .Cascade.AllDeleteOrphan()
-                .KeyColumn("OrderId")
+                .KeyColumn("OrderId").Not.KeyNullable()
                 .Access.CamelCaseField(Prefix.Underscore);
         }
     }

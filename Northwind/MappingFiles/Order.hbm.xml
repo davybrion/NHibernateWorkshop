@@ -21,7 +21,7 @@
     <property name="ShippedOn" type="timestamp" />
 
     <set name="Items" access="field.camelcase-underscore" cascade="all-delete-orphan">
-      <key column="OrderId" />
+      <key column="OrderId" not-null="true" />
       <one-to-many class="OrderItem" />
     </set> 
     
