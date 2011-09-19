@@ -157,7 +157,9 @@
     <EmbeddedResource Include="MappingFiles\ThirdParty.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MappingFiles\Order.hbm.xml" />
+    <EmbeddedResource Include="MappingFiles\Order.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MappingFiles\OrderItem.hbm.xml" />

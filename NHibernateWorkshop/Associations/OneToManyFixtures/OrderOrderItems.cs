@@ -33,8 +33,6 @@ namespace NHibernateWorkshop.AssociationFixtures.OneToManyFixtures
         [Test]
         public void save_cascades_to_items()
         {
-            // NOTE: if you check the output of this test, you'll see that NHibernate still does unnecessary updates
-            // of the OrderItems where the OrderId is set, even though it's already properly set during the inital insert
             Clear();
             var retrievedOrder = Session.Get<Order>(_order.Id);
             Assert.AreEqual(2, retrievedOrder.Items.Count());
