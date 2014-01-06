@@ -20,11 +20,14 @@
     <one-to-one name="Employee" constrained="true" />
     <!--<many-to-one name="Employee" column="EmployeeId" unique="true" cascade="save-update" />-->
 
-    <bag name="UserGroups" table="UserUserGroup" cascade="save-update" access="field.camelcase-underscore">
-      <cache usage="read-write" />
+    <idbag name="UserGroups" table="UserUserGroup" cascade="save-update" access="field.camelcase-underscore">
+      <collection-id column="id" type="int">
+        <generator class="identity"/>
+      </collection-id>
+      <!--<cache usage="read-write" />--> 
       <key column="UserId" />
       <many-to-many class="UserGroup" column="UserGroupId" />
-    </bag>
+    </idbag>
 
   </class>
 

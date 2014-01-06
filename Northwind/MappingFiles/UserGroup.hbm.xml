@@ -13,10 +13,13 @@
 
     <property name="Name" length="20" not-null="true" />
 
-    <bag name="Users" table="UserUserGroup" cascade="save-update" access="field.camelcase-underscore" inverse="false">
+    <idbag name="Users" table="UserUserGroup" cascade="save-update" access="field.camelcase-underscore" inverse="true">
+      <collection-id column="id" type="int">
+        <generator class="identity"/>
+      </collection-id>
       <key column="UsergroupId" />
       <many-to-many class="User" column="UserId" />
-    </bag>
+    </idbag>
 
   </class>
 
