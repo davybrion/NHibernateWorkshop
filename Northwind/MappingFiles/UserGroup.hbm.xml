@@ -13,10 +13,10 @@
 
     <property name="Name" length="20" not-null="true" />
 
-    <set name="Users" table="UserUserGroup" cascade="save-update" access="field.camelcase-underscore" inverse="true">
+    <bag name="Users" table="UserUserGroup" cascade="save-update" access="field.camelcase-underscore" inverse="false">
       <key column="UsergroupId" />
       <many-to-many class="User" column="UserId" />
-    </set>
+    </bag>
 
   </class>
 

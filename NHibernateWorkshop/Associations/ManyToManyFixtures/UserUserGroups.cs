@@ -27,6 +27,9 @@ namespace NHibernateWorkshop.Associations.ManyToManyFixtures
             Session.Save(_user);
             Flush();
 
+            _user.AddUserGroup(new UserGroupBuilder().WithName("g3").Build());
+            Flush();
+
             Assert.IsTrue(_userGroup1.Users.Contains(_user));
             Assert.IsTrue(_userGroup2.Users.Contains(_user));
             Clear();

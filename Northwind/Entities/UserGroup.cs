@@ -8,7 +8,7 @@ namespace Northwind.Entities
     {
         public virtual string Name { get; set; }
 
-        private ISet<User> _users = new HashedSet<User>();
+        private IList<User> _users = new List<User>();
 
         protected UserGroup() {}
 
