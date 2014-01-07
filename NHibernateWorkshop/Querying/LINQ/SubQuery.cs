@@ -28,8 +28,6 @@ namespace NHibernateWorkshop.Querying.LINQ
                 .Where(e => idsOfEmployeesWhoHaveOrders.Count(i => i == e.Id) == 0)
                 .ToArray();
 
-            // note: if you check the output of this test, you'll see that the subquery joins between Order and Employee
-            // which isn't necessary :s
             Assert.That(lazyEmployees.Contains(_lazyEmployee));
         }
     }
